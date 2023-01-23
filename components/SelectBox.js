@@ -1,11 +1,7 @@
 import React from 'react'
 import { Select } from 'antd';
 
-const SelectBox = () => {
-
-    const handleChange = (value) => {
-        console.log(`selected ${value}`);
-    };
+const SelectBox = ({ status, handleSelectChanges }) => {
 
     return (
         <Select
@@ -13,7 +9,7 @@ const SelectBox = () => {
             style={{
                 width: 120,
             }}
-            onChange={handleChange}
+            onChange={handleSelectChanges}
             options={[
                 {
                     value: 'publish',
@@ -24,6 +20,7 @@ const SelectBox = () => {
                     label: 'Draft',
                 },
             ]}
+            value={status}
         />
     )
 }
