@@ -173,68 +173,20 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
                         </Form.Group>
                     </div>
                     <div className='col-md-4'>
-                        <div className={` blogBox`}>
-                            <h5><MdOutlinePublish /> Publish</h5>
-                            <div>
-                                <ul className='list-unstyled'>
-                                    <li>
-                                        <strong>Status:</strong>
-                                        <Select
-                                            defaultValue="draft"
-                                            style={{
-                                                width: 120,
-                                            }}
-                                            onChange={handleSelectChanges}
-                                            options={[
-                                                {
-                                                    value: 'publish',
-                                                    label: 'Publish',
-                                                },
-                                                {
-                                                    value: 'draft',
-                                                    label: 'Draft',
-                                                },
-                                            ]}
-                                            value={form.status}
-                                        />
-                                    </li>
-                                    <li>
-                                        <strong>Visibilty:</strong>
-                                        <span style={{ textTransform: 'capitalize' }}>{postInput.status}</span>
-                                    </li>
-                                </ul>
-                                <div>
-                                    <input onChange={handleImages} type={'file'} accept="image/*" />
-                                    {errors && <p className='color-red'>{errors.errs.image}</p>}
-                                    <div><img className='img-fluid' src={form.image} alt={form.title} /></div>
-                                </div>
-                                <div style={{ textAlign: 'right' }}>
-                                    <button className='blue-btn-sm'>Save as draft</button>
-                                    <button className='green-btn-sm' type='submit'>Update!</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={` blogBox`}>
-                            <h5><BiCategory /> Categories</h5>
-                            {errors && <p className='color-red'>{errors.errs.categories}</p>}
-                            <div>
-                                <Checkbox.Group
-                                    style={{
-                                        width: '100%',
-                                    }}
-                                    onChange={handleCategoriesChanges}
-                                    value={form.categories}
-                                >
-                                    <Row>
-                                        {categories?.map((item, index) => (
-                                            <Col key={index} span={12}>
-                                                <Checkbox value={item.value}>{item.label}</Checkbox>
-                                            </Col>
-                                        ))}
-                                    </Row>
-                                </Checkbox.Group>
-                            </div>
-                        </div>
+                        <PublishBox
+                            form={form}
+                            errors={errors}
+                            handleImages={handleImages}
+                            handleSelectChanges={handleSelectChanges}
+                            status={form.status}
+                            visibilty={postInput.status}
+                        />
+                        <CategoriesBox
+                            form={form}
+                            errors={errors}
+                            categories={categories}
+                            handleCategoriesChanges={handleCategoriesChanges}
+                        />
                     </div>
                 </div>
             </Form >

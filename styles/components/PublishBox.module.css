@@ -23,9 +23,7 @@
 }
 
 .boxActions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+    text-align: right;
 }
 
 .boxContent {
@@ -49,4 +47,14 @@
 .uploadImg {
     margin-bottom: 30px;
     display: inline-block;
+}
+
+.previewImg {
+    margin-top: 15px;
+}
+
+.boxSubmit {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 }

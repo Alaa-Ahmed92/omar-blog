@@ -1,23 +1,30 @@
 import React from 'react'
-import { Form } from 'react-bootstrap'
 import { BiCategory } from 'react-icons/bi'
+import { Checkbox, Col, Row } from 'antd';
 
 import styles from './../styles/components/CategoriesBox.module.css'
 
-const CategoriesBox = ({ categories }) => {
+const CategoriesBox = ({ handleCategoriesChanges, errors, form, categories }) => {
     return (
         <div className={`${styles.categoriesBox} blogBox`}>
             <h5><BiCategory /> Categories</h5>
+            {errors && <p className='color-red'>{errors.errs.categories}</p>}
             <div className={styles.boxContent}>
-                <div className='row'>
-                    {categories.map(item => (
-                        <div key={item._id} className='col-md-6'>
-                            <Form.Group className={`${styles.checkbox}`} controlId={`checkbox_` + item._id}>
-                                <Form.Check className={styles.formCheck} type="checkbox" title={item.name} label={item.name} />
-                            </Form.Group>
-                        </div>
-                    ))}
-                </div>
+                <Checkbox.Group
+                    style={{
+                        width: '100%',
+                    }}
+                    onChange={handleCategoriesChanges}
+                    value={form.categories}
+                >
+                    <Row>
+                        {categories?.map((item, index) => (
+                            <Col key={index} span={12}>
+                                <Checkbox className={styles.checkbox} value={item.value}>{item.label}</Checkbox>
+                            </Col>
+                        ))}
+                    </Row>
+                </Checkbox.Group>
             </div>
         </div>
     )
