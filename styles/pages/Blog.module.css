@@ -1,0 +1,63 @@
+.singlePostBlock {
+
+}
+
+.postInfo {
+    width: 50%;
+    margin: auto;
+    margin-top: 40px;
+    font-family: 'Bebas Neue';
+    font-size: 1.2rem;
+    color: #101118;
+    margin-bottom: 2rem;
+}
+
+.postInfoBlock {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postInfoBlock img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.postInfoBlock h5 {
+    margin: 0;
+    margin-left: 10px;
+}
+
+.postInfoBlock span {
+    margin-left: 10px;
+}
+
+.postWrapperBlock {
+    width: 70%;
+    margin: auto;
+    margin-top: -7rem;
+}
+
+.postImg {
+    margin-bottom: 30px;
+}
+
+.postImg img {
+    border-radius: 20px;
+}
+
+.postContent {
+    width: 80%;
+    margin: auto;
+    font-family: 'Arvo', serif;
+    color: #6c757d;
+    line-height: 1.7;
+    margin-bottom: 5rem;
+}
+
+.postContent p {}
+.postContent li {
+    margin-bottom: 10px;
+}

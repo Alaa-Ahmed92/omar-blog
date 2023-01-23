@@ -1,0 +1,57 @@
+.adminWrapperHead {
+    padding-top: 8rem;
+    border-bottom: 3px solid #101118;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.adminHeading {
+    margin-bottom: 0;
+    background: #101118;
+    display: inline-block;
+    color: #fff;
+    padding: 10px 50px;
+    font-size: 1.8rem;
+    position: relative;
+    font-family: 'Arvo', serif;
+}
+
+.adminHeading:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 56px 0 0 40px;
+    border-color: transparent transparent transparent #101118;
+    left: 100%;
+    top: 0;
+}
+
+.adminActions {
+    display: flex;
+}
+
+.adminActions a,
+.adminActions button {
+    border: none;
+    font-size: 12px;
+    min-height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    font-weight: 500;
+    margin-left: 15px;
+    font-family: 'Arvo', serif;
+}
+
+.adminActions a {
+    background-color: #52BD95;
+    color: #fff;
+}
+
+.adminActions button {
+    background-color: #D14343;
+    color: #fff;
+}

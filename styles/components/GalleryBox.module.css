@@ -1,0 +1,135 @@
+.imgBlock {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    /* background: #101118; */
+    border-radius: 10px;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+}
+
+/* .imgBlock::before {
+    content: '';
+    display: block;
+    background: #101118;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.35s;
+}
+
+.imgBlock:hover:before {
+    opacity: .8;
+} */
+
+.imgBlock figcaption {
+    color: #fff;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    width: 50%;
+    display: inline-block;
+}
+
+.imgBlock figcaption h2, .imgBlock figcaption p {
+    margin: 0;
+}
+
+.imgBlock figcaption h2 {
+    position: absolute;
+    right: 0;
+    bottom: 45px;
+    padding: 0.1em 1.2em;
+    font-family: 'Bebas Neue';
+    background: rgba(16, 17, 24, .5);
+    font-size: 1.7rem;
+    text-transform: uppercase;
+}
+
+.imgBlock figcaption p {
+    font-size: 80%;
+}
+
+.imgBlock figcaption p {
+    /* padding: 0 10px 0 0; */
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.35s, transform 0.35s;
+    transform: translate3d(-40px,0,0);
+    background: rgba(16, 17, 24, .6);
+    padding: 5px 15px;
+}
+
+.imgBlock:hover p {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.imgBlock figcaption > a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+}
+
+.imgBlock img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+.imgBlock img {
+    max-width: none;
+    opacity: 1;
+    transition: opacity 0.35s, transform 0.35s;
+    transform: translate3d(-26px,0,0) scale(1.12);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+}
+
+.imgBlock:hover img {
+    -webkit-transform: translate3d(0,0,0) scale(1);
+    transform: translate3d(0,0,0) scale(1);
+}
+
+.filter {
+    font-family: 'Arvo', serif;
+    border-radius: 10px;
+    padding: 0 20px;
+    color: #101118;
+}
+.filter h5 {
+    font-family: 'Bebas Neue';
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #101118;
+}
+.filter ul li {
+    margin: 12px;
+    cursor: pointer;
+    color: #a2a2a2;
+    transition: .2s ease-in-out;
+}
+
+.filter ul li:hover {
+    color: #101118 !important;
+    padding-left: 10px;
+}
+
+.filter ul li.active {
+    color: #101118 !important;
+    padding-left: 10px;
+}

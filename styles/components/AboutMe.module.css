@@ -1,0 +1,83 @@
+.aboutMeContainer {
+    background: #101118;
+    color: #fff;
+    position: relative;
+}
+
+.paragraph {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #adb5bd;
+}
+
+.paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.paragraph a {
+    position: relative;
+    margin: 0 4px;
+    transition: margin 0.25s;
+}
+.paragraph a svg {
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    transform: translate(-50%, 7px) translateZ(0);
+    fill: none;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke-dashoffset: 361px;
+    stroke: #adb5bd;
+    transition: stroke 0.25s ease 0.1s, stroke-dasharray 0.35s;
+    stroke-dasharray: 180px 278px;
+}
+.paragraph a:hover svg {
+    stroke: #fff;
+    transition: stroke 0.25s ease 0s, stroke-dasharray 0.35s;
+    stroke-dasharray: 69px 278px;
+}
+
+.paragraph a:hover {
+    color: #fff;
+    margin-left: 2px;
+    transition: margin 0.25s;
+}
+
+.statistics {
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statisticsInner {
+    display: flex;
+    align-items: center;
+}
+
+.counter {
+    font-size: 5rem;
+    font-family: 'Bebas Neue';
+    display: flex;
+    align-items: center;
+}
+
+.counter h4 {
+    font-size: 5rem;
+    font-family: 'Bebas Neue';
+    margin: 0;
+}
+
+.counterText {
+    margin-left: 16px;
+    font-family: 'Arvo', serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #adb5bd;
+}

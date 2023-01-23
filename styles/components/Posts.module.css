@@ -1,0 +1,212 @@
+.featuredBlog {}
+.blogSecTitle {
+    font-family: 'Bebas Neue';
+    font-size: 4rem;
+    margin-bottom: 35px;
+}
+
+.postCard {
+    position: relative;
+}
+
+.VerPostCard {
+    margin-bottom: 1.5rem;
+}
+
+.postCard a:hover {
+    color: #101118;
+}
+
+.HorPostCard {
+	margin-bottom: 30px;
+}
+
+.VerPostCard .postCardContent {
+    margin-top: 20px;
+}
+
+.moreStories .secContent {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.moreStories .secContent .HorPostCard {
+	width: 50%;
+}
+
+.VerPostCard h4 {
+    font-size: 18px !important;
+}
+
+.tag {
+    font-family: 'Bebas Neue';
+    color: #4d9f78;
+    letter-spacing: .4px;
+}
+
+.postCard h4 {
+    font-family: 'Arvo', serif;
+    font-size: 17px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.shortBody {
+    position: relative;
+    color: #6c757d;
+    font-family: 'Roboto', sans-serif;
+}
+
+.author {
+    font-family: 'Bebas Neue';
+}
+
+.date {
+    position: relative;
+    color: #6c757d;
+    margin-left: 15px;
+    padding-left: 15px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.date:before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: #6c757d;
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+}
+
+
+.imgPlace {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+
+
+.glitchLayers {
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.glitchLayer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+      background-color: transparent;
+      background-size: cover;
+      transform: translate3d(0,0,0);
+      background-blend-mode: none;
+}
+
+.postCard:hover .glitchLayer:nth-child(1) {
+	transform: translateX(-5%);
+	animation: glitch-anim-1 2s infinite linear alternate;}
+.postCard:hover .glitchLayer:nth-child(2) {
+	transform: translateX(3%) translateY(3%);
+	animation: glitch-anim-2 2.3s -.8s infinite linear alternate;}
+.postCard:hover .glitchLayer:nth-child(3){
+	transform: translateX(5%);
+	animation: glitch-anim-flash 1s infinite linear;}
+
+@keyframes glitch-anim-1 {
+	0% {
+		clip-path: polygon(0 0%, 100% 0%, 100% 5%, 0 5%);
+	}
+	10% {
+		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+	}
+	20% {
+		clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+	}
+	30% {
+		clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+	}
+	40% {
+		clip-path: polygon(0 35%, 100% 35%, 100% 35%, 0 35%);
+	}
+	50% {
+		clip-path: polygon(0 45%, 100% 45%, 100% 46%, 0 46%);
+	}
+	60% {
+		clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%);
+	}
+	70% {
+		clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+	}
+	80% {
+		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+	}
+	90% {
+		clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+	}
+	100% {
+		clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
+	}
+}
+@keyframes glitch-anim-2 {
+	0% {
+		clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%);
+	}
+	15% {
+		clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+	}
+	25% {
+		clip-path: polygon(0 8%, 100% 8%, 100% 20%, 0 20%);
+	}
+	30% {
+		clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+	}
+	45% {
+		clip-path: polygon(0 45%, 100% 45%, 100% 45%, 0 45%);
+	}
+	50% {
+		clip-path: polygon(0 50%, 100% 50%, 100% 57%, 0 57%);
+	}
+	65% {
+		clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+	}
+	75% {
+		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+	}
+	80% {
+		clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
+	}
+	95% {
+		clip-path: polygon(0 45%, 100% 45%, 100% 60%, 0 60%);
+	}
+	100% {
+		clip-path: polygon(0 11%, 100% 11%, 100% 15%, 0 15%);
+	}
+}
+@keyframes glitch-anim-flash {
+	0% {
+		opacity: .2;
+	}
+	30%, 100% {
+		opacity: 0;
+	}
+}
+
+.moreStories,
+.latestStories{
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #dadce0;
+}

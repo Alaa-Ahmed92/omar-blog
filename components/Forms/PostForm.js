@@ -1,0 +1,245 @@
+import React, { useState } from 'react'
+import { mutate } from 'swr';
+import { Form } from 'react-bootstrap';
+import PublishBox from '../PublishBox';
+import { useRouter } from 'next/router';
+import QuillNoSSRWrapper from '../Editor';
+import 'react-quill/dist/quill.snow.css';
+import { BiCategory } from 'react-icons/bi';
+import CategoriesBox from '../CategoriesBox';
+import { MdOutlinePublish } from 'react-icons/md';
+import { Checkbox, Col, Row, Select } from 'antd';
+import { UploadImage } from './../UploadImage';
+import { Button, Upload } from 'antd';
+import { AiOutlineUpload } from 'react-icons/ai'
+
+const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
+    const router = useRouter();
+    const contentType = 'application/json';
+    const [errors, setErrors] = useState();
+    const [message, setMessage] = useState('');
+    const [image, setImage] = useState('');
+
+    const [form, setForm] = useState({
+        title: postInput.title,
+        body: postInput.body,
+        status: postInput.status,
+        image: postInput.image,
+        categories: postInput.categories,
+        views: postInput.views
+    });
+    console.log(postInput);
+    const handleImages = async (e) => {
+        let file = e.target.files[0];
+        const data = new FormData();
+
+        data.append('file', file);
+        data.append('upload_preset', 'uploads');
+
+        try {
+            await fetch(
+                "https://api.cloudinary.com/v1_1/df0sbl5pw/image/upload",
+                {
+                    method: "POST",
+                    body: data,
+                }
+            ).then(response => response.json())
+                .then(data => {
+                    setForm({
+                        ...form,
+                        image: data.url
+                    })
+                })
+        } catch (error) {
+            setMessage('Failed to upload image to the post!')
+        }
+
+    }
+
+    const updatePost = async (form) => {
+        const { id } = router.query;
+        try {
+            const res = await fetch(`/api/posts/${id}`, {
+                method: 'PUT',
+                headers: {
+                    Accept: contentType,
+                    'Content-Type': contentType
+                },
+                body: JSON.stringify(form)
+            });
+
+            if (!res.ok) {
+                throw new Error(res.status);
+            }
+
+            const { data } = await res.json();
+
+            mutate(`/api/posts/${id}`, data, false);
+            router.push('/admin/posts');
+
+        } catch (error) {
+            setMessage('Failed to add post!')
+        }
+    }
+
+    const addNewPost = async (form) => {
+        try {
+            const res = await fetch(`/api/posts`, {
+                method: 'POST',
+                headers: {
+                    Accept: contentType,
+                    'Content-Type': contentType
+                },
+                body: JSON.stringify(form)
+            });
+
+            if (!res.ok) {
+                throw new Error(res.status);
+            }
+
+            router.push('/admin/posts');
+
+        } catch (error) {
+            setMessage('Failed to add post!')
+        }
+    }
+
+    const formValidate = () => {
+        let err = {};
+        if (!form.title) err.title = 'Title is required!';
+        if (!form.body) err.body = 'Body is required!';
+        if (!form.image) err.image = 'Image is required!';
+        if (!form.categories.length > 0) err.categories = 'Categories is required!';
+
+        return err;
+    };
+
+    const handleCategoriesChanges = (checkedValues) => {
+        setForm({
+            ...form,
+            categories: checkedValues
+        })
+    };
+
+    const handleBodyChanges = (e) => {
+        setForm({
+            ...form,
+            body: e,
+        })
+    };
+
+    const handleFormChanges = (e) => {
+        const target = e.target;
+        const value = target.value;
+        const name = e.target.name;
+        setForm({
+            ...form,
+            [name]: value,
+        })
+    };
+
+    const handleSelectChanges = (e) => {
+        setForm({
+            ...form,
+            status: e
+        })
+    };
+
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const errs = formValidate();
+        if (Object.keys(errs).length === 0) {
+            forNewPost ? addNewPost(form) : updatePost(form)
+        } else {
+            setErrors({ errs })
+        }
+    }
+
+
+    return (
+        <div>
+            <Form id={formId} onSubmit={handleSubmit}>
+                <div className='row'>
+                    <div className='col-md-8'>
+                        <Form.Group className="mb-3">
+                            <Form.Control onChange={handleFormChanges} name='title' value={form.title} className='input-control bg-darker' type="text" placeholder="Enter post title..." />
+                            {errors && <p className='color-red'>{errors.errs.title}</p>}
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <QuillNoSSRWrapper placeholder='Enter your content...' value={form.body} onChange={handleBodyChanges} />
+                            {errors && <p className='color-red'>{errors.errs.body}</p>}
+                        </Form.Group>
+                    </div>
+                    <div className='col-md-4'>
+                        <div className={` blogBox`}>
+                            <h5><MdOutlinePublish /> Publish</h5>
+                            <div>
+                                <ul className='list-unstyled'>
+                                    <li>
+                                        <strong>Status:</strong>
+                                        <Select
+                                            defaultValue="draft"
+                                            style={{
+                                                width: 120,
+                                            }}
+                                            onChange={handleSelectChanges}
+                                            options={[
+                                                {
+                                                    value: 'publish',
+                                                    label: 'Publish',
+                                                },
+                                                {
+                                                    value: 'draft',
+                                                    label: 'Draft',
+                                                },
+                                            ]}
+                                            value={form.status}
+                                        />
+                                    </li>
+                                    <li>
+                                        <strong>Visibilty:</strong>
+                                        <span style={{ textTransform: 'capitalize' }}>{postInput.status}</span>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <input onChange={handleImages} type={'file'} accept="image/*" />
+                                    {errors && <p className='color-red'>{errors.errs.image}</p>}
+                                    <div><img className='img-fluid' src={form.image} alt={form.title} /></div>
+                                </div>
+                                <div style={{ textAlign: 'right' }}>
+                                    <button className='blue-btn-sm'>Save as draft</button>
+                                    <button className='green-btn-sm' type='submit'>Update!</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={` blogBox`}>
+                            <h5><BiCategory /> Categories</h5>
+                            {errors && <p className='color-red'>{errors.errs.categories}</p>}
+                            <div>
+                                <Checkbox.Group
+                                    style={{
+                                        width: '100%',
+                                    }}
+                                    onChange={handleCategoriesChanges}
+                                    value={form.categories}
+                                >
+                                    <Row>
+                                        {categories?.map((item, index) => (
+                                            <Col key={index} span={12}>
+                                                <Checkbox value={item.value}>{item.label}</Checkbox>
+                                            </Col>
+                                        ))}
+                                    </Row>
+                                </Checkbox.Group>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Form >
+        </div >
+    )
+}
+
+export default PostForm

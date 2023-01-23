@@ -1,0 +1,72 @@
+.certContent {
+    position: relative;
+}
+
+.certInner {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.certTitle {
+    padding: 10px 30px 14px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #161513;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    color: #101118;
+    transition: all .2s ease-in-out;
+    position: relative;
+    flex-direction: column;
+}
+
+.certTitle h4 {
+    font-family: 'Bebas Neue';
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.certTitle:hover {
+    background-color: #101118;
+    color: #fff;
+}
+.certTitle p {
+    margin: 0;
+}
+.certInfo {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+.certCompany {
+    margin-right: 20px;
+    font-family: 'Arvo', serif;
+}
+.certDate {
+    font-family: 'Bebas Neue';
+    font-size: 23px;
+}
+
+.certImg {
+    position: absolute;
+    right: 0;
+    transform: translateX(30px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+}
+
+.certTitle:hover + .certImg {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.certImg img {
+    width: 112px;
+}

@@ -1,0 +1,28 @@
+.breadcrumb {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.breadcrumbItem svg {
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+.breadcrumbItem:first-child svg {
+    display: none;
+}
+
+.breadcrumbItem {
+    font-family: 'Arvo', serif;
+    font-size: 16px;
+}
+
+.breadcrumbItem a:hover {    color: #474d66;}
+
+.breadcrumbItem span {
+    color: #979797;
+}

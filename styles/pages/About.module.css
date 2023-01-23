@@ -1,0 +1,89 @@
+.elipseDivider {
+    position: absolute;
+    bottom: 0;
+}
+
+.bannerContent {
+    width: 65%;
+    margin: auto;
+}
+
+.lineWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circleBanner {
+    border-radius: 50%;
+}
+
+.bannerWrapper {
+    display: flex;
+    position: relative;
+}
+
+.bannerWrapper.greyColor h1 {
+    color: #5e6065;
+}
+
+.bannerWrapper h1 {
+    font-family: 'Bebas Neue';
+    font-size: 7rem;
+    color: #101118;
+}
+
+.sub {
+    position: absolute;
+    left: auto;
+    top: 14%;
+    right: -16px;
+    color: #101118;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.margin {
+    margin: 0 20px ;
+}
+
+.bannerImageWrapper {
+    position: relative;
+    top: -5px;
+    width: 5.8rem;
+    height: 5.8rem;
+    overflow: hidden;
+    margin: 0 30px;
+}
+
+.bannerImageWrapper.imgCenter {
+    width: 8rem;
+    height: 5.5rem;
+}
+
+.bannerImageWrapper img {
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.shapeWrapper {
+    position: relative;
+    top: -5px;
+    width: 5.8rem;
+    height: 5.8rem;
+    overflow: hidden;
+    
+}
+
+.shape {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#adb5bd),to(#f0f2f5));
+    background-image: linear-gradient(180deg,#adb5bd,#f0f2f5);
+}

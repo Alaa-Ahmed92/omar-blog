@@ -1,0 +1,14 @@
+.subHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9rem 0;
+    background: #e9ebef;
+}
+
+.subHeaderContent h1 {
+    font-size: 6rem;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue';
+    text-align: center;
+}

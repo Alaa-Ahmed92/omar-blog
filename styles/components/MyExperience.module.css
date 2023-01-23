@@ -1,0 +1,146 @@
+.expContainer {
+    background: #101118;
+    color: #fff;
+    position: relative;
+    padding-bottom: 14rem;
+}
+
+.secTitle {
+    margin-bottom: 5rem;
+}
+
+.secTitle h1 {
+    font-size: 8rem;
+    font-family: 'Bebas Neue';
+    margin: 0;
+    line-height: .9;
+}
+
+.expCard:nth-child(2) {
+    margin-top: -21em;
+    margin-left: 7rem;
+}
+
+.expCard:nth-child(3) {
+    margin-top: -21em;
+    margin-left: 14rem;
+}
+
+.expCard:nth-child(4) {
+    margin-top: -21em;
+}
+
+.expCard:nth-child(5) {
+    margin-top: -21em;
+    margin-left: 10rem;
+}
+
+.expCard {
+    position: relative;
+    overflow: hidden;
+    min-height: 35em;
+    padding: 3em 3.5em;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #fff;
+    background-color: #101118;
+    width: 920px;
+    transition: all .3s ease-in-out;
+    transform: translateY(0);
+    color: #fff;
+}
+
+.expCard ul {
+    margin: 0;
+}
+
+.expCard ul li {
+    font-size: 16px;
+    margin-bottom: 7px;
+    font-family: 'Arvo', serif;
+}
+
+.expCard:hover {
+    transform: translateY(-150px);
+}
+
+.expCard:nth-child(1):before {
+    background-color: #4d9f78;
+}
+
+.expCard:nth-child(2):before {
+    background-color: #5595a3;
+}
+
+.expCard:nth-child(3):before {
+    background-color: #ab5e45;
+}
+
+.expCard:nth-child(4):before {
+    background-color: #9a679b;
+}
+
+.expCard:nth-child(5):before {
+    background-color: #5a8cbb;
+}
+
+.expCard:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    transition: all .3s ease-in-out;
+}
+
+.expCard:hover:before {
+    bottom: 0;
+    transition: all .3s ease-in-out;
+}
+
+.expCardTitle,
+.expCardInner {
+    position: relative;
+}
+
+.expCardInner {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in-out;
+    margin-top: 30px;
+}
+
+.expCardTxt {
+    font-size: 1.5rem;
+}
+
+.expCard:hover .expCardInner {
+    opacity: 1;
+    visibility: visible;
+    transition: all .4s ease-in-out;
+}
+
+.expCardTitle {}
+.expDate {}
+.expCardTitle h3 {
+    font-family: 'Bebas Neue';
+    font-size: 4rem;
+}
+.expCardTitle h5 {
+    font-family: 'Arvo', serif;
+}
+
+.expCardDetails svg {
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.expCardDetails span {
+    display: block;
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}

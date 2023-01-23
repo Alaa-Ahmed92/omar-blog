@@ -1,0 +1,68 @@
+.adminPanel {
+  padding-bottom: 4rem;
+}
+
+.statisticBox {
+  background-color: #fff;
+  position: relative;
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+  padding: 30px;
+  padding-top: 60px;
+  font-family: 'Arvo', serif;
+}
+
+.statisticBoxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: -19px;
+  width: 100%;
+  left: 0;
+  padding: 0 30px;
+}
+
+.headActions {
+  display: flex;
+}
+
+.statisticBoxHeader h5 {
+  background: #101118;
+    padding: 8px 18px;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.statisticBoxHeader h5 svg {
+  margin-right: 10px;
+}
+
+.statisticBoxHeader a {
+  display: block;
+    height: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+}
+
+.statisticBoxHeader a:first-child {
+  background: #FFEFD2;
+  color: #66460D;
+  margin-right: 10px;
+}
+
+.statisticBoxHeader a:last-child {
+  background: #DCF2EA;
+  color: #317159;
+}
+
+.statisticBoxContent {}
+
+.statisticBoxContent h3 {}

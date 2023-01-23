@@ -1,0 +1,20 @@
+.tableHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.tableHeaderTitle {
+    margin: 0;
+}
+
+.tableHeaderLink {
+    display: inline-block;
+    padding: 7px 30px;
+    background: #101118;
+    color: #fff;
+}
+
+.tableHeaderLink:hover {
+    color: #fff;
+}

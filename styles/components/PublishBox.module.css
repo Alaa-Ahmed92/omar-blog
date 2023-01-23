@@ -1,0 +1,52 @@
+
+.publishBox {
+    box-shadow: none;
+    padding-top: 40px;
+}
+
+.publishBox h5 {
+    background: #101118;
+    padding: 8px 18px;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Arvo', serif;
+    text-transform: capitalize;
+    font-weight: 400;
+    position: absolute;
+    top: -19px;
+}
+
+.publishBox h5 svg {
+    margin-right: 10px;
+}
+
+.boxActions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxContent {
+    font-family: 'Arvo', serif;
+}
+
+.boxContent ul li {
+    margin-bottom: 10px;
+}
+
+.boxContent ul li:last-child {
+    margin: 0;
+}
+
+
+.boxContent ul li > div,
+.boxContent ul li span {
+    margin-left: 5px;
+}
+
+.uploadImg {
+    margin-bottom: 30px;
+    display: inline-block;
+}

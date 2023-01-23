@@ -1,0 +1,5 @@
+.actions,
+.categoryFormGroup {
+    display: flex;
+    align-items: center;
+}

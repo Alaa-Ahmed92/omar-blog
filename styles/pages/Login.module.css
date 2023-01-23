@@ -1,0 +1,253 @@
+.loginPanel {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginPanelContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.formWrapper {
+    background-color: #fff;
+    position: relative;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    border-radius: 10px;
+    padding: 30px;
+    width: 30%;
+    margin: auto;
+    z-index: 1;
+    transition: all .3s ease-in-out;
+}
+
+.formWrapper:hover + div {
+    transition: all .3s ease-in-out;
+    transform: rotate(0);
+    top: -13rem;
+    opacity: 1;
+}
+
+.formWrapper h4 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue';
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formBlock label {
+    font-family: 'Arvo', serif;
+    color: #101118;
+}
+
+.formBlock input {
+    font-family: 'Arvo', serif;
+    color: #101118;
+    box-shadow: none !important;
+    outline: none !important;
+    font-size: 14px;
+    padding: 15px 20px;
+    background: #e9ebef;
+    border: 2px solid transparent;
+    padding-left: 50px;
+    transition: all .2s ease-in-out;
+}
+
+.formBlock input:focus {
+    color: #101118;
+    background: #e9ebef;
+    border-color: #101118;
+}
+
+.inputGroup {
+    display: flex;
+    align-items: center;
+}
+
+.inputGroup svg {
+    position: absolute;
+    font-size: 1.3rem;
+    width: 50px;
+}
+
+.formIcon {
+    position: absolute;
+    font-size: 8rem;
+    transform: rotate(45deg);
+    top: -9rem;
+    color: #101118;
+    opacity: .1;
+    transition: all .3s ease-in-out;
+}
+
+
+.loginButton {
+    display: block;
+    position: relative;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 8px 30px;
+    font-size: 0.75em;
+    letter-spacing: 0.35em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    margin: 0 auto;
+    background: #101118;
+    color: #fff;
+  }
+  .loginButton:before, .loginButton:after {
+    content: "LOGIN";
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 0;
+    width: 100%;
+    -webkit-clip: rect(0px, 0px, 0px, 0px);
+    clip: rect(0px, 0px, 0px, 0px);
+    background: #101118;
+    color: #fff;
+  }
+  .loginButton:before {
+    left: -3px;
+    top: -2px;
+    text-shadow: 2px 0 #fff;
+    box-shadow: 2px 0 #fff;
+  }
+  .loginButton:after {
+    left: 2px;
+    bottom: -2px;
+    text-shadow: -1px 0 #fff;
+    box-shadow: -1px 0 #fff;
+  }
+  .loginButton:hover {
+    background: #101118;
+    color: #fff;
+  }
+  .loginButton:hover:before {
+    animation: glitch-test 1.5s infinite linear alternate-reverse;
+  }
+  .loginButton:hover:after {
+    -webkit-animation: glitch-test 2s infinite linear alternate;
+            animation: glitch-test 2s infinite linear alternate;
+  }
+  
+  @-webkit-keyframes glitch-test {
+    0% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    5.88235% {
+      clip: rect(0px, 600px, 0px, 0px);
+    }
+    11.76471% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    17.64706% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    23.52941% {
+      clip: rect(100px, 600px, 100px, 0px);
+    }
+    29.41176% {
+      clip: rect(0px, 600px, 600px, 0px);
+    }
+    35.29412% {
+      clip: rect(100px, 600px, 0px, 0px);
+    }
+    41.17647% {
+      clip: rect(0px, 600px, 600px, 0px);
+    }
+    47.05882% {
+      clip: rect(100px, 600px, 0px, 0px);
+    }
+    52.94118% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    58.82353% {
+      clip: rect(100px, 450px, 100px, 0px);
+    }
+    64.70588% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    70.58824% {
+      clip: rect(100px, 450px, 100px, 0px);
+    }
+    76.47059% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    82.35294% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    88.23529% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    94.11765% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    100% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+  }
+  
+  @keyframes glitch-test {
+    0% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    5.88235% {
+      clip: rect(0px, 600px, 0px, 0px);
+    }
+    11.76471% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    17.64706% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    23.52941% {
+      clip: rect(100px, 600px, 100px, 0px);
+    }
+    29.41176% {
+      clip: rect(0px, 600px, 600px, 0px);
+    }
+    35.29412% {
+      clip: rect(100px, 600px, 0px, 0px);
+    }
+    41.17647% {
+      clip: rect(0px, 600px, 600px, 0px);
+    }
+    47.05882% {
+      clip: rect(100px, 600px, 0px, 0px);
+    }
+    52.94118% {
+      clip: rect(-3px, 600px, 0px, 0px);
+    }
+    58.82353% {
+      clip: rect(100px, 450px, 100px, 0px);
+    }
+    64.70588% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    70.58824% {
+      clip: rect(100px, 450px, 100px, 0px);
+    }
+    76.47059% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    82.35294% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    88.23529% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    94.11765% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+    100% {
+      clip: rect(0px, 450px, 0px, 0px);
+    }
+  }
