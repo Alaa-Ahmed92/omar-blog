@@ -1,8 +1,8 @@
 import React from 'react'
 import { MdOutlinePublish } from 'react-icons/md'
 
-import styles from './../styles/components/PublishBox.module.css'
 import SelectBox from './SelectBox'
+import styles from './../styles/components/PublishBox.module.css'
 
 const PublishBox = ({ form, errors, forNewPost, handleImages, visibilty, status, handleSelectChanges }) => {
 

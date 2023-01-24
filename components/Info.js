@@ -1,13 +1,11 @@
 import React from 'react'
 import { Nav, Tab, Row, Col } from 'react-bootstrap'
 
-import styles from './../styles/components/Info.module.css'
-import { Certifications } from './Certifications'
 import Publications from './Publications'
+import { Certifications } from './Certifications'
+import styles from './../styles/components/Info.module.css'
 
 const Info = () => {
-
-    // const exampleCode = `const computerSkills = { + ` + <br />;
 
     return (
         <div className={`${styles.infoContainer} pdd70`}>

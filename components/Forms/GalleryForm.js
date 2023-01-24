@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { mutate } from 'swr';
-import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
-import CategoriesBox from '../CategoriesBox';
 import PublishBox from '../PublishBox';
+import React, { useState } from 'react'
+import CategoriesBox from '../CategoriesBox';
 
-const GalleryForm = ({ formId, categories, galleryInput, forNewGallery = true }) => {
+const GalleryForm = ({ className, formId, categories, galleryInput, forNewGallery = true }) => {
     const router = useRouter();
     const contentType = 'application/json';
     const [errors, setErrors] = useState();
@@ -153,7 +153,7 @@ const GalleryForm = ({ formId, categories, galleryInput, forNewGallery = true })
 
     return (
         <div>
-            <Form id={formId} onSubmit={handleSubmit}>
+            <Form id={formId} onSubmit={handleSubmit} className={className}>
                 <div className='row'>
                     <div className='col-md-8'>
                         <Form.Group className="mb-3">

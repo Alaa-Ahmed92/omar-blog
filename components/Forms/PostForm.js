@@ -3,11 +3,11 @@ import { mutate } from 'swr';
 import { Form } from 'react-bootstrap';
 import PublishBox from '../PublishBox';
 import { useRouter } from 'next/router';
-import QuillNoSSRWrapper from '../Editor';
 import 'react-quill/dist/quill.snow.css';
+import QuillNoSSRWrapper from '../Editor';
 import CategoriesBox from '../CategoriesBox';
 
-const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
+const PostForm = ({ className, categories, formId, postInput, forNewPost = true }) => {
     const router = useRouter();
     const contentType = 'application/json';
     const [errors, setErrors] = useState();
@@ -166,7 +166,7 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
 
     return (
         <div>
-            <Form id={formId} onSubmit={handleSubmit}>
+            <Form id={formId} onSubmit={handleSubmit} className={className}>
                 <div className='row'>
                     <div className='col-md-8'>
                         <Form.Group className="mb-3">

@@ -35,6 +35,10 @@
     background-color: #101118;
     color: #fff;
 }
+
+.certTitle:hover h4 {
+    color: #fff;
+}
 .certTitle p {
     margin: 0;
 }

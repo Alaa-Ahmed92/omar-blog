@@ -17,8 +17,9 @@
 }
 
 .breadcrumbItem {
-    font-family: 'Arvo', serif;
-    font-size: 16px;
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+    font-size: 22px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

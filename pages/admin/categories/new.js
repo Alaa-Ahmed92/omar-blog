@@ -2,7 +2,6 @@ import React from 'react'
 
 import AdminHead from '../../../components/AdminHead'
 import BreadCrumbs from '../../../components/BreadCrumbs';
-
 import CategoryForm from '../../../components/Forms/CategoryForm'
 
 const NewCategoryPage = () => {
@@ -22,9 +21,9 @@ const NewCategoryPage = () => {
     return (
         <div className={`pb-50`}>
             <div className='container'>
-                <AdminHead title='Add Category' />
+                <AdminHead className='green-admin-head' title='Add Category' />
                 <BreadCrumbs links={links} />
-                <CategoryForm formId="add-category-form" categoryInput={categoryForm} />
+                <CategoryForm className='green-category-form' formId="add-category-form" categoryInput={categoryForm} />
             </div>
         </div>
 
@@ -45,7 +44,7 @@ export const getServerSideProps = async (ctx) => {
     }
 
     return {
-        props: {  }
+        props: {}
     }
 }
 

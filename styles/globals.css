@@ -289,13 +289,14 @@ strong {
 .blue-btn,
 .green-btn {
   border: none;
-  font-size: 15px;
+  font-size: 17px;
+  letter-spacing: .7px;
   min-height: 32px;
   line-height: 32px;
   padding: 0 16px;
   font-weight: 500;
   margin-left: 15px;
-  font-family: 'Arvo', serif;
+  font-family: 'Bebas Neue';
   color: #fff;
   white-space: nowrap;
   height: 54.2px;
@@ -318,7 +319,7 @@ strong {
 .blue-btn-sm,
 .green-btn-sm {
   border: none;
-  font-size: 12px;
+  font-size: 16px;
   min-height: 32px;
   line-height: 32px;
   padding: 0 16px;
@@ -329,6 +330,8 @@ strong {
   height: 32px;
   min-width: 110px;
   text-align: center;
+  font-family: 'Bebas Neue';
+  letter-spacing: .7px;
 }
 
 .red-btn-sm:hover,
@@ -370,6 +373,10 @@ strong {
   /* border: 1px solid #3366FF; */
   background-color: #101118;
   color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px;
 }
 
 .table-view {
@@ -382,6 +389,8 @@ strong {
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 50%;
+  font-family: 'Arvo', serif;
+  letter-spacing: normal;
 }
 
 .post-head-style h1:after {
@@ -399,4 +408,263 @@ strong {
 
 .ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
   border-color: #101118;
+}
+
+.status-box {
+  text-align: center;
+  padding: 5px 10px;
+  display: inline-block;
+  border: 1px solid;
+  line-height: 1;
+  font-size: 16px;
+  font-family: 'Bebas Neue';
+  letter-spacing: .5px;
+}
+
+.status-box.Draft {
+  color: #996A13;
+  border-color: #FFB020;
+  background-color: #FFFAF2;
+}
+
+.status-box.publish {
+  color: #317159;
+  border-color: #52BD95;
+  background-color: #F5FBF8;
+}
+
+.ant-table-thead > tr > th {
+  font-family: 'Bebas Neue';
+    font-size: 17px;
+    letter-spacing: .5px;
+}
+
+/* Green */
+
+.green-statis-box {
+  color: #317159;
+  background-color: #F5FBF8;
+  border: 1px solid #52BD95;
+}
+
+.green-statis-box h5.statis-title,
+.green-statis-box h5 + div a:first-child,
+.green-statis-box h5 {
+  background: #317159;
+  color: #F5FBF8;
+}
+
+.green-statis-box h5 + div a:last-child {
+  color: #317159;
+  background: #F5FBF8;
+}
+
+.green-statis-box h4 {
+  color: #317159;
+}
+
+/* Orange */
+
+.orange-statis-box {
+  color: #996A13;
+  background-color: #FFFAF2;
+  border: 1px solid #FFB020;
+}
+
+.orange-statis-box h5.statis-title,
+.orange-statis-box h5 + div a:first-child {
+  background: #996A13;
+  color: #FFFAF2;
+}
+
+.orange-statis-box h5 + div a:last-child {
+  color: #996A13;
+  background: #FFFAF2;
+}
+
+.orange-statis-box h4 + div h5,
+.orange-statis-box h4 {
+  color: #996A13;
+}
+
+/* Blue */
+
+.blue-statis-box {
+  color: #2952CC;
+  background-color: #F3F6FF;
+  border: 1px solid #3366FF;
+}
+
+.blue-statis-box h5.statis-title,
+.blue-statis-box h5 + div a:first-child {
+  background: #2952CC;
+  color: #F3F6FF;
+}
+
+.blue-statis-box h5 + div a:last-child {
+  color: #2952CC;
+  background: #F3F6FF;
+}
+
+.blue-statis-box h4 + div h5,
+.blue-statis-box h4 {
+  color: #2952CC;
+}
+
+/* Tables */
+
+.green-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active a,
+.green-table .ant-table-thead > tr > th {
+  background: #317159;
+  color: #F5FBF8;
+}
+
+.green-table .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.green-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active {
+  border-color: #317159;
+  background: #317159;
+  color: #F5FBF8;
+}
+
+.green-admin-head {
+  border-color: #317159 !important;
+}
+
+.green-admin-head h1:after {
+  border-color: transparent transparent transparent #317159;
+}
+
+.green-admin-head .green-btn-sm,
+.green-admin-head h1 {
+  background: #317159;
+  color: #F5FBF8;
+}
+
+/* Orange */
+
+.orange-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active a,
+.orange-table .ant-table-thead > tr > th {
+  background: #996A13;
+  color: #FFFAF2;
+}
+
+.orange-table .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.orange-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active {
+  border-color: #996A13;
+  background: #996A13;
+  color: #FFFAF2;
+}
+
+.orange-admin-head {
+  border-color: #996A13 !important;
+}
+
+.orange-admin-head h1:after {
+  border-color: transparent transparent transparent #996A13;
+}
+
+.orange-admin-head .green-btn-sm,
+.orange-admin-head h1 {
+  background: #996A13;
+  color: #FFFAF2;
+}
+
+/* Blue */
+
+.blue-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active a,
+.blue-table .ant-table-thead > tr > th {
+  background: #2952CC;
+  color: #F3F6FF;
+}
+
+.blue-table .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.blue-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active {
+  border-color: #2952CC;
+  background: #2952CC;
+  color: #F3F6FF;
+}
+
+.blue-admin-head {
+  border-color: #2952CC !important;
+}
+
+.blue-admin-head h1:after {
+  border-color: transparent transparent transparent #2952CC;
+}
+
+.blue-admin-head .green-btn-sm,
+.blue-admin-head h1 {
+  background: #2952CC;
+  color: #F3F6FF;
+}
+
+/* Forms */
+
+.green-category-form button {
+  background: #317159;
+  color: #F5FBF8;
+}
+
+/* Orange */
+
+
+.orange-category-form .blogBox .green-btn-sm,
+.orange-category-form .blogBox h5 {
+  background: #996A13;
+  color: #FFFAF2;
+}
+
+.orange-category-form .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #996A13;
+  border-color: #996A13;
+}
+
+.orange-category-form .ant-checkbox-checked::after {
+  border: 1px solid #996A13;
+}
+
+.orange-category-form .ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: #996A13;
+}
+
+.orange-category-form .ant-checkbox-checked .ant-checkbox-inner::after {
+  border: 2px solid #FFFAF2;
+  border-top: 0;
+    border-left: 0;
+}
+
+/* Blue */
+
+.blue-category-form .blogBox .green-btn-sm,
+.blue-category-form .blogBox h5 {
+  background: #2952CC;
+  color: #F3F6FF;
+}
+
+.blue-category-form .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #2952CC;
+  border-color: #2952CC;
+}
+
+.blue-category-form .ant-checkbox-checked::after {
+  border: 1px solid #2952CC;
+}
+
+.blue-category-form .ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: #2952CC;
+}
+
+.blue-category-form .ant-checkbox-checked .ant-checkbox-inner::after {
+  border: 2px solid #F3F6FF;
+  border-top: 0;
+    border-left: 0;
 }

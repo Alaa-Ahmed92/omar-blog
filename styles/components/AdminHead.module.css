@@ -15,7 +15,8 @@
     padding: 10px 50px;
     font-size: 1.8rem;
     position: relative;
-    font-family: 'Arvo', serif;
+    font-family: 'Bebas Neue';
+    letter-spacing: 1.5px;
 }
 
 .adminHeading:after {

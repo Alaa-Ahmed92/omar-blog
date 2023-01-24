@@ -2,9 +2,9 @@ import React from 'react'
 
 import Post from '../../../models/Post';
 import dbConnect from '../../../utils/dbConnect';
-import PostsTable from '../../../components/Tables/PostsTable';
 import AdminHead from '../../../components/AdminHead';
 import BreadCrumbs from '../../../components/BreadCrumbs';
+import PostsTable from '../../../components/Tables/PostsTable';
 
 const PostsPage = ({ posts }) => {
 
@@ -17,6 +17,7 @@ const PostsPage = ({ posts }) => {
     <div className='pb-50'>
       <div className='container'>
         <AdminHead
+          className='orange-admin-head'
           link='/admin/posts/new'
           title='Posts'
           label='Post'

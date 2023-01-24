@@ -1,11 +1,11 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
+import Category from '../../../../models/Category';
+import dbConnect from '../../../../utils/dbConnect';
 import AdminHead from '../../../../components/AdminHead';
 import BreadCrumbs from '../../../../components/BreadCrumbs';
 import GalleryForm from '../../../../components/Forms/GalleryForm';
-import Category from '../../../../models/Category';
-import dbConnect from '../../../../utils/dbConnect';
 
 const GalleryPage = ({ categories, gallery }) => {
     const router = useRouter();
@@ -39,9 +39,9 @@ const GalleryPage = ({ categories, gallery }) => {
     return (
         <div className={`pb-50`}>
             <div className='container'>
-                <AdminHead handleDelete={handleDelete} title={galleryForm.title} headStyle={'post-head-style'} />
+                <AdminHead className='blue-admin-head' handleDelete={handleDelete} title={galleryForm.title} headStyle={'post-head-style'} />
                 <BreadCrumbs links={links} />
-                <GalleryForm categories={categories} formId='edit-gallery-form' galleryInput={galleryForm} forNewGallery={false} />
+                <GalleryForm className='blue-category-form' categories={categories} formId='edit-gallery-form' galleryInput={galleryForm} forNewGallery={false} />
             </div>
         </div>
     )
