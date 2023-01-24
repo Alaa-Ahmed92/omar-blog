@@ -1,13 +1,16 @@
 import React from 'react'
+import { useRouter } from 'next/router';
 
 import AdminHead from '../../../../components/AdminHead';
+import BreadCrumbs from '../../../../components/BreadCrumbs';
 import PostsTable from '../../../../components/Tables/PostsTable';
 import CategoryForm from '../../../../components/Forms/CategoryForm';
 import GalleriesTable from '../../../../components/Tables/GalleriesTable';
 import styles from './../../../../styles/pages/categories/EditPage.module.css';
-import BreadCrumbs from '../../../../components/BreadCrumbs';
 
 const CategoryPage = ({ category }) => {
+
+    const router = useRouter();
 
     const links = [
         { name: 'Admin', path: '/admin' },
@@ -21,12 +24,25 @@ const CategoryPage = ({ category }) => {
         galleries: category.data.galleries
     }
 
+    const handleDelete = async () => {
+        const { id } = router.query
+
+        try {
+            await fetch(`/api/categories/${id}`, {
+                method: 'Delete',
+            })
+            router.push('/admin/categories')
+        } catch (error) {
+            setMessage('Failed to delete the category.')
+        }
+    }
+
     return (
         <div className={`${styles.wrapper} pb-50`}>
             <div className='container'>
-                <AdminHead title={categoryForm.name} />
+                <AdminHead className='green-admin-head' handleDelete={handleDelete} title={categoryForm.name} />
                 <BreadCrumbs links={links} />
-                <CategoryForm formId='edit-category-form' categoryInput={categoryForm} forNewCategory={false} />
+                <CategoryForm className='green-category-form' formId='edit-category-form' categoryInput={categoryForm} forNewCategory={false} />
                 {categoryForm.posts.length > 0 && <PostsTable posts={categoryForm.posts} />}
                 {categoryForm.galleries.length > 0 && <GalleriesTable galleries={categoryForm.galleries} />}
             </div>

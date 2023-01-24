@@ -60,6 +60,7 @@
     transition: all .1s ease-in-out;
 }
 
-.publicBox:hover a {
+.publicBox:hover a,
+.publicBox:hover h4 {
     color: #fff;
 }

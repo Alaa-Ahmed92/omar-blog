@@ -3,8 +3,8 @@ import React from 'react'
 import Category from '../../../models/Category'
 import dbConnect from '../../../utils/dbConnect'
 import AdminHead from '../../../components/AdminHead'
-import CategoriesTable from '../../../components/Tables/CategoriesTable'
 import BreadCrumbs from '../../../components/BreadCrumbs'
+import CategoriesTable from '../../../components/Tables/CategoriesTable'
 
 const Categories = ({ categories }) => {
 
@@ -17,6 +17,7 @@ const Categories = ({ categories }) => {
         <div className='pb-50'>
             <div className='container'>
                 <AdminHead
+                    className='green-admin-head'
                     link='/admin/categories/new'
                     title='Categories'
                     label='Category'

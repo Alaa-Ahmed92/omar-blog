@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 import styles from './../styles/components/AdminHead.module.css'
 
-const AdminHead = ({ handleDelete, title, link, label, headStyle }) => {
+const AdminHead = ({ className, handleDelete, title, link, label, headStyle }) => {
 
 
     return (
-        <div className={`${styles.adminWrapperHead} ${headStyle}`}>
+        <div className={`${styles.adminWrapperHead} ${headStyle} ${className}`}>
             <h1 className={styles.adminHeading}>{title}</h1>
             <div className={styles.adminActions}>
                 {handleDelete && <button className='red-btn-sm' onClick={handleDelete}>Delete!</button>}

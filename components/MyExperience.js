@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './../styles/components/MyExperience.module.css'
-
 import { BiSpreadsheet } from 'react-icons/bi'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
+
+import styles from './../styles/components/MyExperience.module.css'
 
 const MyExperience = () => {
     return (

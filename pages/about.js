@@ -1,11 +1,11 @@
 import React from 'react'
 
+import Info from '../components/Info'
+import Footer from '../layout/Footer'
 import Banner from '../components/Banner'
 import AboutMe from '../components/AboutMe'
-import styles from './../styles/pages/About.module.css'
-import Info from '../components/Info'
 import MyExperience from '../components/MyExperience'
-import Footer from '../layout/Footer'
+import styles from './../styles/pages/About.module.css'
 
 
 const About = () => {

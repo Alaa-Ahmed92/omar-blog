@@ -1,11 +1,11 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
+import Category from '../../../../models/Category';
+import dbConnect from '../../../../utils/dbConnect';
 import AdminHead from '../../../../components/AdminHead';
 import BreadCrumbs from '../../../../components/BreadCrumbs';
 import PostForm from '../../../../components/Forms/PostForm';
-import Category from '../../../../models/Category';
-import dbConnect from '../../../../utils/dbConnect';
 
 const PostPage = ({ categories, post }) => {
     const router = useRouter()
@@ -38,9 +38,9 @@ const PostPage = ({ categories, post }) => {
     return (
         <div className={`pb-50`}>
             <div className='container'>
-                <AdminHead handleDelete={handleDelete} title={postForm.title} headStyle={'post-head-style'} />
+                <AdminHead className='orange-admin-head' handleDelete={handleDelete} title={postForm.title} headStyle={'post-head-style'} />
                 <BreadCrumbs links={links} />
-                <PostForm categories={categories} formId='edit-post-form' postInput={postForm} forNewPost={false} />
+                <PostForm className='orange-category-form' categories={categories} formId='edit-post-form' postInput={postForm} forNewPost={false} />
             </div>
         </div>
     )

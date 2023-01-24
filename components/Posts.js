@@ -1,66 +1,8 @@
-import Link from 'next/link';
 import React from 'react'
+import Link from 'next/link';
 import Masonry from 'react-masonry-css'
 
 import styles from './../styles/components/Posts.module.css';
-/*
-export const VerticalPostCard = ({ article }) => {
-    return (
-        <div className={`${styles.postCard} ${styles.HorPostCard} postCardStyle`}>
-            <Link href={`/blog/${article?.id}`}>
-                <div className={styles.imgPlace}>
-                    <img src={article?.img} className='img-fluid' />
-                    <div className={styles.glitchLayers}>
-                        <div className={styles.glitchLayer} style={{ backgroundImage: `url(${article?.img})` }}></div>
-                        <div className={styles.glitchLayer} style={{ backgroundImage: `url(${article?.img})` }}></div>
-                        <div className={styles.glitchLayer} style={{ backgroundImage: `url(${article?.img})` }}></div>
-                    </div>
-                </div>
-                <div className={styles.postCardContent}>
-                    <span className={styles.tag}>{article?.category}</span>
-                    <h4>{article?.title}</h4>
-                    <p className={styles.shortBody}>{article?.shortBody}</p>
-                    <div className={styles.postCardFooter}>
-                        <span className={styles.author}>Omar Salama</span>
-                        <span className={styles.date}>{article?.date}</span>
-                    </div>
-                </div>
-            </Link>
-        </div>
-    )
-}
-
-export const HorizontalPostCard = ({ article }) => {
-    return (
-        <div className={`${styles.postCard} ${styles.VerPostCard}`}>
-            <Link href={`/blog/${article?.id}`}>
-                <div className='row align-items-center'>
-                    <div className='col-md-5'>
-                        <div className={styles.imgPlace}>
-                            <img src={article?.img} className='img-fluid' />
-                            <div className={styles.glitchLayers}>
-                                <div className={styles.glitchLayer} style={{ backgroundImage: `url(${article?.img})` }}></div>
-                                <div className={styles.glitchLayer} style={{ backgroundImage: `url(${article?.img})` }}></div>
-                                <div className={styles.glitchLayer} style={{ backgroundImage: `url(${article?.img})` }}></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-md-6'>
-                        <div className={styles.postCardContent}>
-                            <span className={styles.tag}>{article?.category}</span>
-                            <h4>{article?.title}</h4>
-                            <div className={styles.postCardFooter}>
-                                <span className={styles.author}>Omar Salama</span>
-                                <span className={styles.date}>{article?.date}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Link>
-        </div>
-    )
-}
-*/
 
 export const VerticalPostCard = ({ article }) => {
     return (

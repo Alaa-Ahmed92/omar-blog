@@ -1,13 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 
-import BreadCrumbBlock from '../../components/BreadCrumbBlock'
-import SubHeader from '../../components/SubHeader'
-import Tweets from '../../components/Tweets';
 import Footer from '../../layout/Footer';
-import { GalleryBox } from '../../components/GalleryBox'
-import dbConnect from '../../utils/dbConnect';
+import Tweets from '../../components/Tweets';
 import Category from '../../models/Category';
+import dbConnect from '../../utils/dbConnect';
+import SubHeader from '../../components/SubHeader'
+import { GalleryBox } from '../../components/GalleryBox'
+import BreadCrumbBlock from '../../components/BreadCrumbBlock'
 
 const Gallery = ({ categories }) => {
     return (

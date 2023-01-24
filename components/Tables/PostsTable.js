@@ -19,12 +19,14 @@ const PostsTable = ({ posts }) => {
             title: 'Status',
             dataIndex: 'status',
             key: 'status',
-            render: (status) => <div style={{textTransform: 'capitalize'}}>{status}</div>
+            render: (status) => <div className={`${status} status-box`} style={{ textTransform: 'capitalize' }}>{status}</div>,
+            width: 100
         },
         {
             title: 'Views',
             dataIndex: 'views',
             key: 'views',
+            render: (views) => <div style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue' }}>{views}</div>
         },
         {
             title: 'Date',
@@ -37,7 +39,7 @@ const PostsTable = ({ posts }) => {
             title: 'Categories',
             dataIndex: 'categories',
             key: 'categories',
-            render: (categories) => <div>{categories.map((item, index) => <span key={index} className='category-item'>{item}</span>)}</div>
+            render: (categories) => <div>{categories.map((item, index) => <span key={index} title={item} className='category-item'>{item}</span>)}</div>
         },
         {
             title: 'Action',
@@ -46,7 +48,7 @@ const PostsTable = ({ posts }) => {
                 <Space size="middle">
                     <Link
                         href={`/admin/posts/${post._id}`}
-                        style={{ background: '#edeff5', color: '#474d66', height: '28px', display: 'inline-block', lineHeight: '28px', padding: '0 10px', fontWeight: 500 }}
+                        style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue', background: '#edeff5', color: '#474d66', height: '28px', display: 'inline-block', lineHeight: '28px', padding: '0 10px', fontWeight: 500 }}
                     >
                         Edit
                     </Link>
@@ -63,7 +65,7 @@ const PostsTable = ({ posts }) => {
                 pagination={true}
                 dataSource={posts}
                 rowKey={post => post._id}
-                className='table-view'
+                className='table-view orange-table'
             />
         </div>
     )

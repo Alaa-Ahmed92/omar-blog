@@ -25,9 +25,9 @@ const AddGallery = ({ categories }) => {
     return (
         <div className={`pb-50`}>
             <div className='container'>
-                <AdminHead title='Add Gallery' />
+                <AdminHead className='blue-admin-head' title='Add Gallery' />
                 <BreadCrumbs links={links} />
-                <GalleryForm categories={categories} formId="add-gallery-form" galleryInput={galleryForm} />
+                <GalleryForm className='blue-category-form' categories={categories} formId="add-gallery-form" galleryInput={galleryForm} />
             </div>
         </div>
     )

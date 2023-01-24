@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
-import Form from 'react-bootstrap/Form';
+import React from 'react'
 
 import Category from '../../../models/Category';
 import dbConnect from "../../../utils/dbConnect";
 import AdminHead from '../../../components/AdminHead'
-import PublishBox from '../../../components/PublishBox';
-import QuillNoSSRWrapper from '../../../components/Editor';
-import CategoriesBox from '../../../components/CategoriesBox';
-import styles from './../../../styles/pages/addPost.module.css';
 import PostForm from '../../../components/Forms/PostForm';
 import BreadCrumbs from '../../../components/BreadCrumbs';
 
@@ -32,9 +27,9 @@ const AddPost = ({ categories }) => {
     return (
         <div className={`pb-50`}>
             <div className='container'>
-                <AdminHead title='Add Post' />
+                <AdminHead className='orange-admin-head' title='Add Post' />
                 <BreadCrumbs links={links} />
-                <PostForm categories={categories} formId="add-post-form" postInput={postForm} />
+                <PostForm className='orange-category-form' categories={categories} formId="add-post-form" postInput={postForm} />
             </div>
         </div>
     )

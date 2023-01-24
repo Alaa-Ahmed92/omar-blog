@@ -1,6 +1,6 @@
-import dbConnect from "../../../utils/dbConnect";
 import Post from "../../../models/Post";
 import Category from "../../../models/Category";
+import dbConnect from "../../../utils/dbConnect";
 
 export default async function handler(req, res) {
     const {

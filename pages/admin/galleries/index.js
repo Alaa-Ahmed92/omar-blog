@@ -17,6 +17,7 @@ const GalleriesPage = ({ galleries }) => {
         <div className='pb-50'>
             <div className='container'>
                 <AdminHead
+                    className='blue-admin-head'
                     link='/admin/galleries/new'
                     title='Galleries'
                     label='Gallery'

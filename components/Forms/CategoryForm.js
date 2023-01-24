@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import { mutate } from 'swr';
 import { Form } from 'react-bootstrap';
+import { useRouter } from 'next/router';
 
 import styles from './../../styles/components/Forms/Forms.module.css'
 
-const CategoryForm = ({ formId, categoryInput, forNewCategory = true }) => {
+const CategoryForm = ({ className, formId, categoryInput, forNewCategory = true }) => {
 
     const router = useRouter();
     const contentType = 'application/json';
@@ -70,19 +70,6 @@ const CategoryForm = ({ formId, categoryInput, forNewCategory = true }) => {
 
     }
 
-    const handleDelete = async () => {
-        const { id } = router.query;
-        try {
-            await fetch(`/api/categories/${id}`, {
-                method: 'DELETE'
-            });
-
-            router.push('/admin/categories');
-        } catch (error) {
-            setMessage('Failed to delete the category.');
-        }
-    }
-
     const handleChange = (e) => {
         const value = e.target.value;
 
@@ -113,7 +100,7 @@ const CategoryForm = ({ formId, categoryInput, forNewCategory = true }) => {
 
     return (
         <div>
-            <Form id={formId} onSubmit={handleSubmit} className='form-wrapper'>
+            <Form id={formId} onSubmit={handleSubmit} className={`${className} form-wrapper`}>
                 <Form.Group className={styles.categoryFormGroup}>
                     <Form.Control
                         onChange={handleChange}
@@ -121,11 +108,9 @@ const CategoryForm = ({ formId, categoryInput, forNewCategory = true }) => {
                         type="text"
                         value={form.name}
                         placeholder="Category Name..."
-                    // required
                     />
                     <div className={styles.actions}>
                         <button className={`${forNewCategory ? 'green-btn' : 'blue-btn'}`} type='submit'>{`${forNewCategory ? 'Add' : 'Update'} Category`}</button>
-                        {!forNewCategory && <button onClick={handleDelete} className='red-btn'>Delete Category</button>}
                     </div>
                 </Form.Group>
                 {errors && <p className='color-red'>{errors?.errs?.name}</p>}

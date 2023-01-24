@@ -1,14 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
-import { BsCalendarWeek } from 'react-icons/bs'
 import { FiEye } from 'react-icons/fi'
+import { BsCalendarWeek } from 'react-icons/bs'
 
-import SubHeader from '../../components/SubHeader'
-import BreadCrumbBlock from '../../components/BreadCrumbBlock'
-import styles from './../../styles/pages/Blog.module.css'
 import Footer from '../../layout/Footer';
 import Tweets from '../../components/Tweets';
+import SubHeader from '../../components/SubHeader'
 import { TagsBlock } from '../../components/TagsBlock'
+import styles from './../../styles/pages/Blog.module.css'
+import BreadCrumbBlock from '../../components/BreadCrumbBlock'
 
 const SinglePost = () => {
     return (

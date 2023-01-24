@@ -1,9 +1,8 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 
-
-import styles from './../styles/components/AboutMe.module.css'
 import CountUpBlock from './CountUpBlock'
+import styles from './../styles/components/AboutMe.module.css'
 
 const AboutMe = () => {
     return (

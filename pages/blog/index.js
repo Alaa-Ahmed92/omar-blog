@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 
-import BreadCrumbBlock from '../../components/BreadCrumbBlock'
-import SubHeader from '../../components/SubHeader'
 import Footer from '../../layout/Footer';
-import { Posts } from '../../components/Posts'
 import Tweets from '../../components/Tweets';
+import { Posts } from '../../components/Posts'
+import SubHeader from '../../components/SubHeader'
+import BreadCrumbBlock from '../../components/BreadCrumbBlock'
 
 const Blog = () => {
     return (

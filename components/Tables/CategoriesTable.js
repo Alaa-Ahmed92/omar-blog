@@ -1,10 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link';
 import { Space, Table } from 'antd';
-import TableHeader from './TableHeader';
-import { FiEdit } from 'react-icons/fi';
-import { RiDeleteBinLine } from 'react-icons/ri'
-import { useRouter } from 'next/router';
 
 
 const CategoriesTable = ({ categories, colWidth }) => {
@@ -21,13 +17,13 @@ const CategoriesTable = ({ categories, colWidth }) => {
             title: 'Posts',
             dataIndex: 'posts',
             key: 'posts',
-            render: (posts) => <div>{posts.length}</div>,
+            render: (posts) => <div style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue' }}>{posts.length}</div>,
         },
         {
             title: 'Galleries',
             dataIndex: 'galleries',
             key: 'galleries',
-            render: (galleries) => <div>{galleries.length}</div>,
+            render: (galleries) => <div style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue' }}>{galleries.length}</div>,
         },
         {
             title: 'Action',
@@ -36,7 +32,7 @@ const CategoriesTable = ({ categories, colWidth }) => {
                 <Space size="middle">
                     <Link
                         href={`/admin/categories/${category._id}`}
-                        style={{ background: '#edeff5', color: '#474d66', height: '28px', display: 'inline-block', lineHeight: '28px', padding: '0 10px', fontWeight: 500 }}
+                        style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue', background: '#edeff5', color: '#474d66', height: '28px', display: 'inline-block', lineHeight: '28px', padding: '0 10px', fontWeight: 500 }}
                     >
                         Edit
                     </Link>
@@ -53,6 +49,7 @@ const CategoriesTable = ({ categories, colWidth }) => {
                 pagination={true}
                 dataSource={categories}
                 rowKey={category => category._id}
+                className='green-table'
             />
         </>
     )
