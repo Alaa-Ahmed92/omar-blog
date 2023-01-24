@@ -1,19 +1,22 @@
 import React from 'react'
 import { Space, Table } from 'antd';
-import { FiEdit } from 'react-icons/fi';
-import { RiDeleteBinLine } from 'react-icons/ri'
-
-import TableHeader from './TableHeader';
+import Link from 'next/link';
 
 const GalleriesTable = ({ galleries }) => {
 
     const columns = [
         {
-            title: 'Gallery',
-            dataIndex: 'gallery',
-            key: 'gallery',
-            render: (text) => <a style={{ width: '250px' }} className={`d-block text-truncate`}>{text}</a>,
-            width: 250
+            title: 'Gallery Name',
+            dataIndex: 'title',
+            key: 'title',
+            render: (title) => <p style={{ fontFamily: 'Arvo, serif', width: `450px`, margin: 0, letterSpacing: '.3px', fontSize: '15px' }} title={title} className={`d-block text-truncate`}>{title}</p>,
+            width: 450
+        },
+        {
+            title: 'Status',
+            dataIndex: 'status',
+            key: 'status',
+            render: (status) => <div style={{ textTransform: 'capitalize' }}>{status}</div>
         },
         {
             title: 'Views',
@@ -22,105 +25,33 @@ const GalleriesTable = ({ galleries }) => {
         },
         {
             title: 'Date',
-            dataIndex: 'date',
-            key: 'date',
+            dataIndex: 'createdAt',
+            key: 'createdAt',
+            width: 250,
+            render: (createdAt) => <div>{new Date(createdAt).toLocaleString()}</div>
         },
         {
-            title: 'Category',
-            dataIndex: 'category',
-            key: 'category',
+            title: 'Categories',
+            dataIndex: 'categories',
+            key: 'categories',
+            render: (categories) => <div>{categories.map((item, index) => <span key={index} className='category-item'>{item}</span>)}</div>
         },
         {
             title: 'Action',
             key: 'action',
-            render: (_, record) => (
+            render: (_, gallery) => (
                 <Space size="middle">
-                    <a><FiEdit /></a>
-                    <a><RiDeleteBinLine /></a>
+                    <Link
+                        href={`/admin/galleries/${gallery._id}`}
+                        style={{ background: '#edeff5', color: '#474d66', height: '28px', display: 'inline-block', lineHeight: '28px', padding: '0 10px', fontWeight: 500 }}
+                    >
+                        Edit
+                    </Link>
                 </Space>
             ),
             width: 90
         },
     ];
-    // const data = [
-    //     {
-    //         key: '1',
-    //         gallery: 'John Brown John Brown John Brown John Brown John Brown John Brown John Brown',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['nice', 'developer'],
-    //     },
-    //     {
-    //         key: '2',
-    //         gallery: 'Jim Green',
-    //         views: 42,
-    //         date: '27 Nov 2022',
-    //         category: ['loser'],
-    //     },
-    //     {
-    //         key: '3',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '4',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '5',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '6',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '7',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '8',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '9',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '10',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    //     {
-    //         key: '11',
-    //         gallery: 'Joe Black',
-    //         views: 32,
-    //         date: '27 Nov 2022',
-    //         category: ['cool', 'teacher'],
-    //     },
-    // ];
 
     return (
         <>
@@ -128,6 +59,8 @@ const GalleriesTable = ({ galleries }) => {
                 columns={columns}
                 pagination={true}
                 dataSource={galleries}
+                rowKey={gallery => gallery._id}
+                className='table-view'
             />
         </>
     )

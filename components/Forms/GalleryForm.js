@@ -1,25 +1,22 @@
-import React, { useState } from 'react'
-import { mutate } from 'swr';
-import { Form } from 'react-bootstrap';
-import PublishBox from '../PublishBox';
 import { useRouter } from 'next/router';
-import QuillNoSSRWrapper from '../Editor';
-import 'react-quill/dist/quill.snow.css';
+import { mutate } from 'swr';
+import React, { useState } from 'react'
+import { Form } from 'react-bootstrap'
 import CategoriesBox from '../CategoriesBox';
+import PublishBox from '../PublishBox';
 
-const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
+const GalleryForm = ({ formId, categories, galleryInput, forNewGallery = true }) => {
     const router = useRouter();
     const contentType = 'application/json';
     const [errors, setErrors] = useState();
     const [message, setMessage] = useState('');
 
     const [form, setForm] = useState({
-        title: postInput.title,
-        body: postInput.body,
-        status: postInput.status,
-        image: postInput.image,
-        categories: postInput.categories,
-        views: postInput.views
+        title: galleryInput.title,
+        status: galleryInput.status,
+        image: galleryInput.image,
+        categories: galleryInput.categories,
+        views: galleryInput.views
     });
 
     const handleImages = async (e) => {
@@ -49,10 +46,10 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
 
     }
 
-    const updatePost = async (form) => {
+    const updateGallery = async (form) => {
         const { id } = router.query;
         try {
-            const res = await fetch(`/api/posts/${id}`, {
+            const res = await fetch(`/api/galleries/${id}`, {
                 method: 'PUT',
                 headers: {
                     Accept: contentType,
@@ -67,17 +64,18 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
 
             const { data } = await res.json();
 
-            mutate(`/api/posts/${id}`, data, false);
-            router.push('/admin/posts');
+            mutate(`/api/galleries/${id}`, data, false);
+            router.push('/admin/galleries');
 
         } catch (error) {
-            setMessage('Failed to add post!')
+            console.log(error);
+            setMessage('Failed to update gallery!')
         }
     }
 
-    const addNewPost = async (form) => {
+    const addNewGallery = async (form) => {
         try {
-            const res = await fetch(`/api/posts`, {
+            const res = await fetch(`/api/galleries`, {
                 method: 'POST',
                 headers: {
                     Accept: contentType,
@@ -90,30 +88,29 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
                 throw new Error(res.status);
             }
 
-            router.push('/admin/posts');
+            router.push('/admin/galleries');
 
         } catch (error) {
-            setMessage('Failed to add post!')
+            setMessage('Failed to add gallery!')
         }
     }
 
-    // const handleDelete = async () => {
-    //     const postId = router.query.id;
-    //     try {
-    //         await fetch(`/api/posts/${postId}`, {
-    //             method: 'DELETE'
-    //         });
+    const handleDelete = async () => {
+        const { id } = router.query;
+        try {
+            await fetch(`/api/galleries/${id}`, {
+                method: 'DELETE'
+            });
 
-    //         router.push('/admin/posts');
-    //     } catch (error) {
-    //         setMessage('Failed to delete post!')
-    //     }
-    // }
+            router.push('/admin/galleries');
+        } catch (error) {
+            setMessage('Failed to delete gallery!')
+        }
+    }
 
     const formValidate = () => {
         let err = {};
         if (!form.title) err.title = 'Title is required!';
-        if (!form.body) err.body = 'Body is required!';
         if (!form.image) err.image = 'Image is required!';
         if (!form.categories.length > 0) err.categories = 'Categories is required!';
 
@@ -124,13 +121,6 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
         setForm({
             ...form,
             categories: checkedValues
-        })
-    };
-
-    const handleBodyChanges = (e) => {
-        setForm({
-            ...form,
-            body: e,
         })
     };
 
@@ -151,18 +141,15 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
         })
     };
 
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const errs = formValidate();
         if (Object.keys(errs).length === 0) {
-            forNewPost ? addNewPost(form) : updatePost(form)
+            forNewGallery ? addNewGallery(form) : updateGallery(form)
         } else {
             setErrors({ errs })
         }
     }
-
 
     return (
         <div>
@@ -170,23 +157,20 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
                 <div className='row'>
                     <div className='col-md-8'>
                         <Form.Group className="mb-3">
-                            <Form.Control onChange={handleFormChanges} name='title' value={form.title} className='input-control bg-darker' type="text" placeholder="Enter post title..." />
+                            <Form.Control name='title' onChange={handleFormChanges} value={form.title} className='input-control bg-darker' type="text" placeholder="Enter gallery title..." />
                             {errors && <p className='color-red'>{errors.errs.title}</p>}
                         </Form.Group>
-                        <Form.Group className="mb-3">
-                            <QuillNoSSRWrapper placeholder='Enter your content...' value={form.body} onChange={handleBodyChanges} />
-                            {errors && <p className='color-red'>{errors.errs.body}</p>}
-                        </Form.Group>
+                        {form.image && <div><img className='img-fluid' src={form.image} alt={form.title} /></div>}
                     </div>
                     <div className='col-md-4'>
                         <PublishBox
                             form={form}
                             errors={errors}
                             handleImages={handleImages}
-                            forNewPost={forNewPost}
+                            handleDelete={handleDelete}
                             handleSelectChanges={handleSelectChanges}
                             status={form.status}
-                            visibilty={postInput.status}
+                            visibilty={galleryInput.status}
                         />
                         <CategoriesBox
                             form={form}
@@ -196,9 +180,9 @@ const PostForm = ({ categories, formId, postInput, forNewPost = true }) => {
                         />
                     </div>
                 </div>
-            </Form >
-        </div >
+            </Form>
+        </div>
     )
 }
 
-export default PostForm
+export default GalleryForm

@@ -4,7 +4,8 @@ import { MdOutlinePublish } from 'react-icons/md'
 import styles from './../styles/components/PublishBox.module.css'
 import SelectBox from './SelectBox'
 
-const PublishBox = ({ form, errors, handleImages, visibilty, status, handleSelectChanges }) => {
+const PublishBox = ({ form, errors, forNewPost, handleImages, visibilty, status, handleSelectChanges }) => {
+
     return (
         <div className={`${styles.publishBox} blogBox`}>
             <h5><MdOutlinePublish /> Publish</h5>

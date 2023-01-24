@@ -314,6 +314,7 @@ strong {
   background-color: #D14343;
 }
 
+.red-btn-sm,
 .blue-btn-sm,
 .green-btn-sm {
   border: none;
@@ -327,6 +328,13 @@ strong {
   white-space: nowrap;
   height: 32px;
   min-width: 110px;
+  text-align: center;
+}
+
+.red-btn-sm:hover,
+.blue-btn-sm:hover,
+.green-btn-sm:hover {
+  color: #fff;
 }
 
 .green-btn-sm {
@@ -335,6 +343,10 @@ strong {
 
 .blue-btn-sm {
   background-color: #3366FF;
+}
+
+.red-btn-sm {
+  background-color: #D14343;
 }
 
 .ant-select-single .ant-select-selector {
@@ -366,6 +378,10 @@ strong {
 
 .post-head-style h1 {
   font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 50%;
 }
 
 .post-head-style h1:after {
