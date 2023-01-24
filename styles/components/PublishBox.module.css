@@ -32,6 +32,8 @@
 
 .boxContent ul li {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .boxContent ul li:last-child {

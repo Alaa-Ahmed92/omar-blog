@@ -34,7 +34,7 @@
     display: flex;
 }
 
-.adminActions a,
+/* .adminActions a,
 .adminActions button {
     border: none;
     font-size: 12px;
@@ -54,4 +54,4 @@
 .adminActions button {
     background-color: #D14343;
     color: #fff;
-}
+} */

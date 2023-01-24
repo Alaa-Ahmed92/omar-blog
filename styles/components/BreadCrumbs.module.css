@@ -19,6 +19,10 @@
 .breadcrumbItem {
     font-family: 'Arvo', serif;
     font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 50%;
 }
 
 .breadcrumbItem a:hover {    color: #474d66;}

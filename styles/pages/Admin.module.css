@@ -50,17 +50,18 @@
     font-size: 1.3rem;
     border-radius: 50%;
     transition: all .3s ease-in-out;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
 }
 
 .statisticBoxHeader a:first-child {
-  background: #FFEFD2;
-  color: #66460D;
+  background: #101118;
+  color: #fff;
   margin-right: 10px;
 }
 
 .statisticBoxHeader a:last-child {
-  background: #DCF2EA;
-  color: #317159;
+  background: #fff;
+  color: #101118;
 }
 
 .statisticBoxContent {}

@@ -77,7 +77,7 @@ const CategoryForm = ({ formId, categoryInput, forNewCategory = true }) => {
                 method: 'DELETE'
             });
 
-            router.replace('/admin/categories');
+            router.push('/admin/categories');
         } catch (error) {
             setMessage('Failed to delete the category.');
         }

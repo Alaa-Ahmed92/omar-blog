@@ -3,44 +3,45 @@ import { useRouter } from 'next/router'
 
 import AdminHead from '../../../../components/AdminHead';
 import BreadCrumbs from '../../../../components/BreadCrumbs';
-import PostForm from '../../../../components/Forms/PostForm';
+import GalleryForm from '../../../../components/Forms/GalleryForm';
 import Category from '../../../../models/Category';
 import dbConnect from '../../../../utils/dbConnect';
 
-const PostPage = ({ categories, post }) => {
-    const router = useRouter()
+const GalleryPage = ({ categories, gallery }) => {
+    const router = useRouter();
+
     const links = [
         { name: 'Admin', path: '/admin' },
-        { name: 'Posts', path: '/admin/posts' },
-        { name: post.data.title, path: `/admin/posts/${post._id}` }
+        { name: 'Galleries', path: '/admin/galleries' },
+        { name: gallery.data.title, path: `/admin/galleries/${gallery._id}` }
     ];
 
-    const postForm = {
-        title: post.data.title,
-        body: post.data.body,
-        status: post.data.status,
-        image: post.data.image,
-        categories: post.data.categories,
-        views: post.data.views
+    const galleryForm = {
+        title: gallery.data.title,
+        status: gallery.data.status,
+        image: gallery.data.image,
+        categories: gallery.data.categories,
+        views: gallery.data.views
     }
     const handleDelete = async () => {
         const { id } = router.query
 
         try {
-            await fetch(`/api/posts/${id}`, {
+            await fetch(`/api/galleries/${id}`, {
                 method: 'Delete',
             })
-            router.push('/admin/posts')
+            router.push('/admin/galleries')
         } catch (error) {
-            setMessage('Failed to delete the post.')
+            setMessage('Failed to delete the gallery.')
         }
     }
+
     return (
         <div className={`pb-50`}>
             <div className='container'>
-                <AdminHead handleDelete={handleDelete} title={postForm.title} headStyle={'post-head-style'} />
+                <AdminHead handleDelete={handleDelete} title={galleryForm.title} headStyle={'post-head-style'} />
                 <BreadCrumbs links={links} />
-                <PostForm categories={categories} formId='edit-post-form' postInput={postForm} forNewPost={false} />
+                <GalleryForm categories={categories} formId='edit-gallery-form' galleryInput={galleryForm} forNewGallery={false} />
             </div>
         </div>
     )
@@ -64,8 +65,8 @@ export async function getServerSideProps(ctx) {
     })
 
     const { id } = ctx.query;
-    const res = await fetch(`http://localhost:3000/api/posts/${id}`);
-    const post = await res.json();
+    const res = await fetch(`http://localhost:3000/api/galleries/${id}`);
+    const gallery = await res.json();
 
     if (myCookie.token !== process.env.TOKEN) {
         return {
@@ -79,10 +80,10 @@ export async function getServerSideProps(ctx) {
     // Pass data to the page via props
     return {
         props: {
-            post,
+            gallery,
             categories: JSON.parse(JSON.stringify(categories))
         }
     }
 }
 
-export default PostPage
+export default GalleryPage
