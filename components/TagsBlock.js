@@ -9,13 +9,13 @@ export const TagBlock = ({ children }) => {
     )
 }
 
-export const TagsBlock = () => {
+export const TagsBlock = ({ tags }) => {
     return (
         <div className={styles.tagsBlock}>
             <h3>Tags: </h3>
-            <TagBlock>AWS Security</TagBlock>
-            <TagBlock>Blockchain Hacking</TagBlock>
-            <TagBlock>Car Hacking</TagBlock>
+            {tags?.map((item, index) => (
+                <TagBlock key={index}>{item}</TagBlock>
+            ))}
         </div>
     )
 }

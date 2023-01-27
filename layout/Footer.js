@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Link from 'next/link';
-import { BsWhatsapp, BsLinkedin, BsGithub } from 'react-icons/bs'
+import { BsTwitter, BsLinkedin, BsGithub } from 'react-icons/bs'
 
 import styles from './../styles/layout/Footer.module.css';
 
@@ -11,9 +11,9 @@ const Footer = () => {
             <img className={styles.footerElipse} src='/images/top-elipse.svg' />
             <div className={`${styles.bannerContent}`}>
                 <div className={styles.lineWrapper}>
-                    <div className={`${styles.bannerImageWrapper} ${styles.circleBanner}`}>
+                    {/* <div className={`${styles.bannerImageWrapper} ${styles.circleBanner}`}>
                         <img src='/images/omar-photo.jpg' />
-                    </div>
+                    </div> */}
                     <div className={`${styles.bannerWrapper} ${styles.greyColor}`}>
                         <h1>have projects</h1>
                     </div>
@@ -23,7 +23,7 @@ const Footer = () => {
                         <h1>In mind?</h1>
                     </div>
                     <div className={styles.bannerButtonWrapper}>
-                        <a href='#' className={styles.bannerButton}>Get in Touch</a>
+                        <a href='https://www.linkedin.com/in/omarsalama/' target={'_blank'} className={styles.bannerButton}>Get in Touch</a>
                     </div>
                 </div>
                 <div className={styles.lineWrapper}>
@@ -44,7 +44,7 @@ const Footer = () => {
                         <Link href={'/gallery'} data-text="GALLERY">Gallery</Link>
                     </div>
                     <div className={styles.footerSocial}>
-                        <a href='#' target={'_blank'}><BsWhatsapp /></a>
+                        <a href='https://twitter.com/mistspark' target={'_blank'}><BsTwitter /></a>
                         <a href='https://www.linkedin.com/in/omarsalama/' target={'_blank'}><BsLinkedin /></a>
                         <a href='https://github.com/mistspark' target={'_blank'}><BsGithub /></a>
                     </div>

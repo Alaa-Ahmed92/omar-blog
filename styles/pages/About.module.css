@@ -8,6 +8,10 @@
     margin: auto;
 }
 
+.bannerLastName {
+    margin-left: 2rem;
+}
+
 .lineWrapper {
     display: flex;
     justify-content: center;
@@ -31,6 +35,7 @@
     font-family: 'Bebas Neue';
     font-size: 7rem;
     color: #101118;
+    margin-bottom: 0.5rem;
 }
 
 .sub {

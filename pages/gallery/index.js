@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 import Footer from '../../layout/Footer';
+import Gallery from '../../models/Gallery';
 import Tweets from '../../components/Tweets';
 import Category from '../../models/Category';
 import dbConnect from '../../utils/dbConnect';
@@ -9,7 +10,7 @@ import SubHeader from '../../components/SubHeader'
 import { GalleryBox } from '../../components/GalleryBox'
 import BreadCrumbBlock from '../../components/BreadCrumbBlock'
 
-const Gallery = ({ categories }) => {
+const GalleryData = ({ categories, galleries }) => {
     return (
         <div>
             <SubHeader>
@@ -24,7 +25,7 @@ const Gallery = ({ categories }) => {
                 </div>
             </SubHeader>
             <div className='container pdd70'>
-                <GalleryBox categories={categories} />
+                <GalleryBox galleries={galleries} categories={categories} />
             </div>
             <Tweets />
             <Footer />
@@ -34,6 +35,8 @@ const Gallery = ({ categories }) => {
 
 export const getServerSideProps = async () => {
     await dbConnect();
+
+    const galleries = await (await Gallery.find({})).filter(item => item.status !== 'Draft');
 
     const result = await Category.find({});
     const categories = result.map(item => {
@@ -45,10 +48,11 @@ export const getServerSideProps = async () => {
 
     return {
         props: {
-            categories: JSON.parse(JSON.stringify(categories))
+            categories: JSON.parse(JSON.stringify(categories)),
+            galleries: JSON.parse(JSON.stringify(galleries))
         }
     }
 
 }
 
-export default Gallery
+export default GalleryData

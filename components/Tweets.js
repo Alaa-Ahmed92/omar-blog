@@ -2,10 +2,27 @@ import React from 'react'
 import { Parallax } from "react-parallax";
 
 import styles from './../styles/components/Tweets.module.css'
+import FollowBox from './FollowBox';
 
 const Tweets = () => {
+
+    const followLinks = [
+        {
+            title: 'twitter',
+            link: 'https://twitter.com/mistspark'
+        },
+        {
+            title: 'github',
+            link: 'https://github.com/mistspark'
+        },
+        {
+            title: 'linkedin',
+            link: 'https://www.linkedin.com/in/omarsalama/'
+        }
+    ]
+
     return (
-        <Parallax bgImage={'/images/hack.jpg'} strength={500}>
+        <Parallax bgImage={'/images/hack.jpg'} strength={100}>
             <div className={`${styles.tweets} pdd70`}>
                 <div className='d-overlay'></div>
                 <div className='container'>
@@ -13,18 +30,11 @@ const Tweets = () => {
                         <h1>Follow Me</h1>
                     </div>
                     <div className='row'>
-                        <div className='col-md-4'>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6990628979682492416" height="438" width="504" frameBorder="0" allowFullScreen="" title="Embedded post"></iframe>
-
-                        </div>
-                        <div className='col-md-4'>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6990208854831579136" height="512" width="504" frameBorder="0" allowFullScreen="" title="Embedded post"></iframe>
-
-                        </div>
-                        <div className='col-md-4'>
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6971044619602006016" height="333" width="504" frameBorder="0" allowFullScreen="" title="Embedded post"></iframe>
-
-                        </div>
+                        {followLinks.map((item, index) => (
+                            <div key={index} className='col-md-4'>
+                                <FollowBox item={item} />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

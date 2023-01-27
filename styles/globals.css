@@ -515,12 +515,12 @@ strong {
 
 .green-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active a,
 .green-table .ant-table-thead > tr > th {
-  background: #317159;
+  background: #317159 !important;
   color: #F5FBF8;
 }
 
 .green-table .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .green-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active {
@@ -547,12 +547,12 @@ strong {
 
 .orange-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active a,
 .orange-table .ant-table-thead > tr > th {
-  background: #996A13;
+  background: #996A13 !important;
   color: #FFFAF2;
 }
 
 .orange-table .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .orange-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active {
@@ -579,12 +579,12 @@ strong {
 
 .blue-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active a,
 .blue-table .ant-table-thead > tr > th {
-  background: #2952CC;
+  background: #2952CC !important;
   color: #F3F6FF;
 }
 
 .blue-table .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .blue-table.ant-table-wrapper .ant-pagination .ant-pagination-item.ant-pagination-item-active {
@@ -667,4 +667,115 @@ strong {
   border: 2px solid #F3F6FF;
   border-top: 0;
     border-left: 0;
+}
+
+/* Social */
+
+.followBox.twitter .followLink {
+  background-color: #1da1f2;
+  color: #f5f8fa;
+}
+
+.followBox.twitter .followLink h4 {
+  color: #f5f8fa;
+}
+
+.followBox.github .followLink {
+  background-color: #fafafa;
+  color: #333;
+}
+
+.followBox.github .followLink h4 {
+  color: #333;
+}
+
+.followBox.linkedin .followLink {
+  background-color: #0077b5;
+  color: #caccce;
+}
+
+.followBox.linkedin .followLink h4 {
+  color: #caccce;
+}
+
+.no-result.galleries {
+  font-family: 'Arvo', serif;
+  font-size: 1.5rem;
+}
+
+/* ant-table-filter-dropdown */
+
+.ant-table-filter-trigger:hover {
+  color: #fff;
+}
+
+.ant-table-filter-trigger svg {
+  font-size: 18px;
+}
+
+.ant-table-filter-dropdown {}
+
+.ant-table-filter-dropdown .ant-input {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.ant-table-filter-dropdown .ant-space {}
+
+.ant-table-filter-dropdown .ant-space .ant-space-item {}
+
+.green-filter-form .ant-input:hover,
+.green-filter-form .ant-input:focus {
+  border-color: #317159;
+}
+
+.green-filter-form .ant-space .ant-space-item:first-child button {
+  background: #317159;
+  color: #F5FBF8;
+}
+
+/* Orange */
+
+.orange-filter-form .ant-input:hover,
+.orange-filter-form .ant-input:focus {
+  border-color: #996A13;
+}
+
+.orange-filter-form .ant-space .ant-space-item:first-child button {
+  background: #996A13;
+  color: #FFFAF2;
+}
+
+/* Blue */
+
+.blue-filter-form .ant-input:hover,
+.blue-filter-form .ant-input:focus {
+  border-color: #2952CC;
+}
+
+.blue-filter-form .ant-space .ant-space-item:first-child button {
+  background: #2952CC;
+  color: #F3F6FF;
+}
+
+.ant-table-filter-dropdown .ant-space .ant-space-item:last-child button {
+  background: rgb(237, 239, 245);
+  color: rgb(71, 77, 102);
+}
+
+.ant-table-filter-dropdown .ant-space .ant-space-item button {
+  border: none;
+  font-size: 16px;
+  min-height: 32px;
+  line-height: 32px;
+  padding: 0 16px;
+  font-weight: 500;
+  font-family: 'Arvo', serif;
+  color: #fff;
+  white-space: nowrap;
+  height: 32px;
+  min-width: 110px;
+  text-align: center;
+  font-family: 'Bebas Neue';
+  letter-spacing: .7px;
 }
