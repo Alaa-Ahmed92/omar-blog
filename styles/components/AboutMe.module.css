@@ -15,12 +15,12 @@
     margin-bottom: 0;
 }
 
-.paragraph a {
+.paragraph span {
     position: relative;
     margin: 0 4px;
     transition: margin 0.25s;
 }
-.paragraph a svg {
+.paragraph span svg {
     width: 70px;
     height: 40px;
     position: absolute;
@@ -35,17 +35,17 @@
     transition: stroke 0.25s ease 0.1s, stroke-dasharray 0.35s;
     stroke-dasharray: 180px 278px;
 }
-.paragraph a:hover svg {
+/* .paragraph span:hover svg {
     stroke: #fff;
     transition: stroke 0.25s ease 0s, stroke-dasharray 0.35s;
     stroke-dasharray: 69px 278px;
 }
 
-.paragraph a:hover {
+.paragraph span:hover {
     color: #fff;
     margin-left: 2px;
     transition: margin 0.25s;
-}
+} */
 
 .statistics {
     color: #fff;

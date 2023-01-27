@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     switch (method) {
         case 'GET':
             try {
-                const posts = await Post.find({}).select('createdAt');
+                const posts = await Post.find({});
                 res.status(200).json({ success: true, data: posts });
             } catch (error) {
                 res.status(400).json({ success: false });

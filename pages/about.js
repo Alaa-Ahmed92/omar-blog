@@ -19,11 +19,11 @@ const About = () => {
                             <h1>i'm omar</h1>
                             <div className={styles.sub}>©</div>
                         </div>
-                        <div className={`${styles.bannerImageWrapper} ${styles.circleBanner}`}>
+                        {/* <div className={`${styles.bannerImageWrapper} ${styles.circleBanner}`}>
                             <img src='/images/omar-photo.jpg' />
-                        </div>
+                        </div> */}
                         <div className={styles.bannerWrapper}>
-                            <h1>salama,</h1>
+                            <h1 className={styles.bannerLastName}>salama,</h1>
                         </div>
                     </div>
                     <div className={styles.lineWrapper}>

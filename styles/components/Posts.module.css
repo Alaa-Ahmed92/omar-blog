@@ -39,6 +39,10 @@
     font-size: 18px !important;
 }
 
+.tag:first-child {
+	margin-right: 10px;
+}
+
 .tag {
     font-family: 'Bebas Neue';
     color: #4d9f78;
