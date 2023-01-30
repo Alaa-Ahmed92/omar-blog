@@ -420,7 +420,7 @@ strong {
   font-family: 'Bebas Neue';
   letter-spacing: .5px;
 }
-
+.status-box.draft,
 .status-box.Draft {
   color: #996A13;
   border-color: #FFB020;

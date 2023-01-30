@@ -31,6 +31,11 @@ export default async function handler(req, res) {
                     new: true,
                     runValidators: true,
                 })
+
+                await Promise.all(post.categories.map(async category => {
+                    await Category.updateOne({ name: category }, { $set: { 'posts': post } });
+                }));
+
                 if (!post) {
                     return res.status(400).json({ success: false })
                 }
