@@ -779,3 +779,18 @@ strong {
   font-family: 'Bebas Neue';
   letter-spacing: .7px;
 }
+
+/* Loader */
+
+#nprogress .bar {
+  background: #101118 !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #101118, 0 0 5px #101118 !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #101118 !important;
+  border-left-color: #101118 !important;
+}
