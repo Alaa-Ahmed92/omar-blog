@@ -33,6 +33,10 @@ export default async function handler(req, res) {
                     runValidators: true,
                 })
 
+                await Promise.all(gallery.categories.map(async category => {
+                    await Category.updateOne({ name: category }, { $set: { 'galleries': gallery } });
+                }));
+
                 if (!gallery) {
                     return res.status(400).json({ success: false });
                 }
