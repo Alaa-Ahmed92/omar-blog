@@ -504,6 +504,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    margin-bottom: 20px;
 }
 
 .searchInnerList h6 {
@@ -543,4 +544,13 @@
 .searchInnerBox a:hover svg {
     padding-left: 6px;
     transition: all .3s ease-in-out;
+}
+
+.searchInfoList {
+    margin: 0;
+}
+
+.searchGallery {
+    border-radius: 9px;
+    overflow: hidden;
 }
