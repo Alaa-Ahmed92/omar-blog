@@ -4,20 +4,6 @@ import StickyBox from "react-sticky-box";
 import ModalImage from "react-modal-image";
 
 import styles from './../styles/components/GalleryBox.module.css'
-import { useEffect } from 'react';
-
-// export const GalleryBlock = () => {
-//     return (
-//         <div className={styles.imgBlock}>
-//             <img src='/images/skills/01.jpg' className='img-fluid' />
-//             <figcaption>
-//                 <h2>AWS Security</h2>
-//                 <p>Milo went to the woods. He took a fun ride and never came back.</p>
-//                 <a href="#">View more</a>
-//             </figcaption>
-//         </div>
-//     )
-// }
 
 export const GalleryBox = ({ categories, galleries }) => {
 

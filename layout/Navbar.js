@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { RiSearchLine } from 'react-icons/ri'
 import { FaAngleRight } from 'react-icons/fa'
+import ModalImage from "react-modal-image";
 
 import styles from './../styles/layout/Navbar.module.css'
 
@@ -11,7 +12,8 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
     const { id } = router.query;
     const [openNav, setOpenNav] = useState(false);
     const [searchValue, setSearchValue] = useState('');
-    const [results, setResults] = useState({ posts: [] });
+    const [results, setResults] = useState({ posts: [], galleries: [] });
+    const [openGallery, setOpenGallery] = useState(false);
 
     useEffect(() => {
         if (searchValue.length > 0 && searchValue !== " ") {
@@ -19,7 +21,7 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
                 .then((res) => res.json())
                 .then((data) => setResults(data))
         } else {
-            setResults({ posts: [] });
+            setResults({ posts: [], galleries: [] });
         }
     }, [searchValue])
 
@@ -34,8 +36,8 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-
         setOpenNav(openNav => !openNav);
+        setSearchValue('');
     }
 
     return (
@@ -83,7 +85,21 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
                                                 ))}
                                             </ul>
                                         )}
-                                        {results.posts.length === 0 && (<div className={styles.recentSearches}>No recent searches</div>)}
+                                        {results.galleries.length > 0 && (
+                                            <ul className={`${styles.searchInnerList} ${styles.searchInfoList}`}>
+                                                <h6>Infographics</h6>
+                                                <div className={`row`}>
+                                                    {results.galleries.map(gallery => (
+                                                        <div className='col-md-4'>
+                                                            <li className={`${styles.searchInnerBox} ${styles.searchGallery}`} key={gallery._id}>
+                                                                <ModalImage small={gallery.image} large={gallery.image} alt={gallery.title} />
+                                                            </li>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </ul>
+                                        )}
+                                        {results.posts.length === 0 && results.galleries.length === 0 && (<div className={styles.recentSearches}>No results yet</div>)}
                                     </div>
                                 </div>
                             </div>
