@@ -355,3 +355,192 @@
     transition: bottom 75ms ease,transform 75ms cubic-bezier(.215,.61,.355,1) .12s;
     transform: rotate(-90deg);
 }
+
+.navigationActions {
+    display: flex;
+    align-items: center;
+}
+
+.searchBtn {
+    position: relative;
+    width: 220px;
+    box-shadow: rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px;
+    padding: 7px 15px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 36px;
+    margin-right: 2rem;
+    border-radius: 4px;
+    justify-content: space-between;
+    line-height: 34px;
+    color: #999;
+    font-family: 'Bebas Neue';
+    transition: all .3s ease-in-out;
+}
+
+.searchBtn:hover {
+    transition: all .3s ease-in-out;
+    background: rgba(255, 255, 255, .5);
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+}
+
+.searchBox h6 {
+    margin: 0;
+    font-weight: 400;
+    margin-left: 10px;
+    color: #999;
+}
+
+.searchBtn svg {
+    font-size: 16px;
+}
+
+.searchBtn span {
+    line-height: 1;
+    background: #f1f1f1;
+    color: #999;
+    padding: 5px 9px;
+    border-radius: 4px;
+}
+
+.searchWrapper {
+    visibility: hidden;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchWrapper.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.searchContent {
+    background: #fff;
+    width: 758px;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+}
+
+.searchContentBox {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0,0,0,.07);
+}
+
+.searchContentBox form {
+    width: 100%;
+    height: 100%;
+}
+
+.searchContentBox .closeBtn {
+    width: 8%;
+    text-align: center;
+}
+
+.searchContentBox .closeBtn span {
+    line-height: 1;
+    background: #f1f1f1;
+    color: #999;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-family: 'Bebas Neue';
+    cursor: pointer;
+}
+
+.searchLeftSide {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.searchLeftSide svg {
+    width: 50px;
+    font-size: 20px;
+    color: #999;
+}
+
+.searchLeftSide input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    box-shadow: none !important;
+    outline: none;
+    padding: 0;
+    font-family: 'Arvo', serif;
+}
+
+.searchInner {
+    padding: 30px;
+}
+
+.recentSearches {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'Arvo', serif;
+}
+
+.searchInnerList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.searchInnerList h6 {
+    font-family: 'Bebas Neue';
+    font-size: 1.7rem;
+}
+
+.searchInnerBox {
+}
+
+.searchInnerBox:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.searchInnerBox a {
+    display: block;
+    padding: 0.9rem 1.3rem!important;
+    border-radius: 0.5rem;
+    background: rgba(0,0,0,.02);
+    background: #f9f9f9;
+    font-family: 'Arvo', serif;
+    color: #101118;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchInnerBox a svg {
+    color: #999;
+    transition: all .3s ease-in-out;
+}
+
+.searchInnerBox a:hover {
+    background: rgba(0,0,0,.05);
+    color: #101118;
+}
+.searchInnerBox a:hover svg {
+    padding-left: 6px;
+    transition: all .3s ease-in-out;
+}

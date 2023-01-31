@@ -1,4 +1,4 @@
-
+import React, { useEffect } from 'react';
 import Link from 'next/link'
 import styles from '../styles/pages/Home.module.css'
 
