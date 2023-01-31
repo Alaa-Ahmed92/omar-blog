@@ -1,11 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
+import { RiSearchLine } from 'react-icons/ri'
+import { FaAngleRight } from 'react-icons/fa'
 
 import styles from './../styles/layout/Navbar.module.css'
 
-const Navbar = () => {
-
+const Navbar = ({ handleSearchClick, openSearch }) => {
+    const router = useRouter();
+    const { id } = router.query;
     const [openNav, setOpenNav] = useState(false);
+    const [searchValue, setSearchValue] = useState('');
+    const [results, setResults] = useState({ posts: [] });
+
+    useEffect(() => {
+        if (searchValue.length > 0 && searchValue !== " ") {
+            fetch(`http://localhost:3000/api/search?query=${searchValue.trim()}`)
+                .then((res) => res.json())
+                .then((data) => setResults(data))
+        } else {
+            setResults({ posts: [] });
+        }
+    }, [searchValue])
+
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
+    }
+
+    const handleCloseSearchAndResetValue = () => {
+        handleSearchClick();
+        setSearchValue('');
+    }
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -24,11 +49,46 @@ const Navbar = () => {
                     </div>
                     <div className='col-md-8'>
                         <div className={styles.navigation}>
-                            <button onClick={handleClick} className={`${styles.menuBtn} ${openNav && styles.activeBtn}`}>
-                                <div className={styles.menuBox}>
-                                    <div className={styles.menuInner}></div>
+                            <div className={styles.navigationActions}>
+                                <div onClick={handleSearchClick} className={styles.searchBtn}>
+                                    <div className={styles.searchBox}>
+                                        <RiSearchLine />
+                                        <h6>Search...</h6>
+                                    </div>
                                 </div>
-                            </button>
+                                <button onClick={handleClick} className={`${styles.menuBtn} ${openNav && styles.activeBtn}`}>
+                                    <div className={styles.menuBox}>
+                                        <div className={styles.menuInner}></div>
+                                    </div>
+                                </button>
+                            </div>
+                            {/* Search Content */}
+                            <div className={`${styles.searchWrapper} ${openSearch && styles.open}`}>
+                                <div className={styles.searchContent}>
+                                    <div className={styles.searchContentBox}>
+                                        <div className={styles.searchLeftSide}>
+                                            <RiSearchLine />
+                                            <input value={searchValue} onChange={handleSearchChange} type='text' placeholder='Search...' />
+                                        </div>
+                                        <div className={styles.closeBtn}><span onClick={handleSearchClick}>ESC</span></div>
+                                    </div>
+                                    <div className={styles.searchInner}>
+                                        {results.posts.length > 0 && (
+                                            <ul className={styles.searchInnerList}>
+                                                <h6>Posts</h6>
+                                                {results.posts.map(post => (
+                                                    <li onClick={handleCloseSearchAndResetValue} className={styles.searchInnerBox} key={post._id}>
+                                                        <Link href={`/blog/${post._id}`}><div>{post.title}</div><FaAngleRight /></Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                        {results.posts.length === 0 && (<div className={styles.recentSearches}>No recent searches</div>)}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Menu Content */}
                             <div className={`${styles.navWrapper} ${styles.navDoor} ${openNav && styles.open}`}>
                                 <ul className='list-unstyled'>
                                     <li onClick={handleClick}>

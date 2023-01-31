@@ -3,10 +3,10 @@ import React from 'react'
 import styles from './../styles/layout/Header.module.css'
 import Navbar from './Navbar'
 
-const Header = () => {
+const Header = ({ handleSearchClick, openSearch }) => {
     return (
         <div className={styles.header}>
-            <Navbar />
+            <Navbar handleSearchClick={handleSearchClick} openSearch={openSearch} />
         </div>
     )
 }
