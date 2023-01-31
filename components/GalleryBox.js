@@ -30,9 +30,11 @@ export const GalleryBox = ({ categories, galleries }) => {
                             <h5>Filter...</h5>
                             <ul className='list-unstyled'>
                                 <li className={`item ${activeItem === 'All' ? styles.active : ''}`} onClick={() => handleClick('All')}>All</li>
-                                {categories?.map(item => (
-                                    <li className={`item ${activeItem === item.name ? styles.active : ''}`} key={item._id} onClick={() => handleClick(item)}>{item.name}</li>
-                                ))}
+                                {categories.map(item =>
+                                    item.galleries.length > 0 && (
+                                        <li className={`item ${activeItem === item.name ? styles.active : ''}`} key={item._id} onClick={() => handleClick(item)}>{item.name}</li>
+                                    )
+                                )}
                             </ul>
                         </div>
                     </StickyBox>
