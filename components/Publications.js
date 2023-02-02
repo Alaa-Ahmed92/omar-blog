@@ -10,7 +10,7 @@ const Publications = () => {
                 <HiOutlineExternalLink />
             </span>
             <div className={`row ${styles.row}`}>
-                <div className={`col-md-6 ${styles.column}`}>
+                <div className={`col-xl-6 ${styles.column}`}>
                     <div className={styles.publicBox}>
                         <a target='_blank' href='https://www.packtpub.com/product/python-ethical-hacking-from-scratch/9781838829506'>
                             <div className={styles.publicDetails}>
@@ -20,7 +20,7 @@ const Publications = () => {
                         </a>
                     </div>
                 </div>
-                <div className={`col-md-6 ${styles.column}`}>
+                <div className={`col-xl-6 ${styles.column}`}>
                     <div className={styles.publicBox}>
                         <a target='_blank' href='https://hakin9.org/product/wireless-hacking/'>
                             <div className={styles.publicDetails}>
@@ -30,7 +30,7 @@ const Publications = () => {
                         </a>
                     </div>
                 </div>
-                <div className={`col-md-6 ${styles.column}`}>
+                <div className={`col-xl-6 ${styles.column}`}>
                     <div className={styles.publicBox}>
                         <a target='_blank' href='https://hakin9.org/product/the-power-of-scapy/'>
                             <div className={styles.publicDetails}>
@@ -40,7 +40,7 @@ const Publications = () => {
                         </a>
                     </div>
                 </div>
-                <div className={`col-md-6 ${styles.column}`}>
+                <div className={`col-xl-6 ${styles.column}`}>
                     <div className={styles.publicBox}>
                         <a target='_blank' href='https://www.youtube.com/watch?v=jmwiO5a_qbg'>
                             <div className={styles.publicDetails}>

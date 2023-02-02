@@ -134,6 +134,7 @@ const GalleriesTable = ({ galleries }) => {
             key: 'status',
             render: (status) => <div className={`${status} status-box`} style={{ textTransform: 'capitalize' }}>{status}</div>,
             width: 100,
+            responsive: ['lg'],
             sorter: (a, b) => a.status.localeCompare(b.status),
         },
         {
@@ -142,6 +143,7 @@ const GalleriesTable = ({ galleries }) => {
             key: 'views',
             render: (views) => <div style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue' }}>{views}</div>,
             sorter: (a, b) => a.views - b.views,
+            responsive: ['lg'],
         },
         {
             title: 'Date',
@@ -149,12 +151,14 @@ const GalleriesTable = ({ galleries }) => {
             key: 'createdAt',
             width: 250,
             render: (createdAt) => <div>{new Date(createdAt).toLocaleString()}</div>,
-            sorter: (a, b) => a.createdAt.localeCompare(b.createdAt)
+            sorter: (a, b) => a.createdAt.localeCompare(b.createdAt),
+            responsive: ['lg'],
         },
         {
             title: 'Categories',
             dataIndex: 'categories',
             key: 'categories',
+            responsive: ['lg'],
             render: (categories) => <div>{categories.map((item, index) => <span key={index} title={item} className='category-item'>{item}</span>)}</div>
         },
         {

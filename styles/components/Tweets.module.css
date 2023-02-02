@@ -26,3 +26,42 @@
     position: relative;
     box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
 }
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+    .secTitle {
+        margin-bottom: 2rem;
+    }
+    .secTitle h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .tweets {
+        padding-bottom: 5rem;
+    }
+}
+
+@media only screen and (min-width: 575.99px) and (max-width: 767.98px)  {
+    .secTitle {
+        margin-bottom: 2rem;
+    }
+    .secTitle h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .tweets {
+        padding-bottom: 5rem;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media only screen and (min-width: 767.99px) and (max-width: 991.98px) {
+
+    .secTitle h1 {
+        font-size: 4rem;
+    }
+    .tweets {
+        padding-bottom: 5rem;
+    }
+}

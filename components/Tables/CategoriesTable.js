@@ -133,12 +133,14 @@ const CategoriesTable = ({ categories, colWidth }) => {
             title: 'Posts',
             dataIndex: 'posts',
             key: 'posts',
+            responsive: ['md'],
             render: (posts) => <div style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue' }}>{posts.length}</div>,
         },
         {
             title: 'Galleries',
             dataIndex: 'galleries',
             key: 'galleries',
+            responsive: ['md'],
             render: (galleries) => <div style={{ letterSpacing: '.7px', fontFamily: 'Bebas Neue' }}>{galleries.length}</div>,
         },
         {

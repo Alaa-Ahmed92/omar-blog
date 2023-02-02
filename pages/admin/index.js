@@ -42,7 +42,7 @@ const AdminPanel = ({ posts, galleries, categories }) => {
                 <AdminHead title={'Admin Panel'} />
                 <div className={styles.tablesWrapper}>
                     <div className='row'>
-                        <div className='col-md-4'>
+                        <div className='col-lg-4'>
                             <div className={`${styles.statisticBox} green-statis-box`}>
                                 <div className={styles.statisticBoxHeader}>
                                     <h5 className='statis-title'><BiCategory /> Categories</h5>
@@ -56,7 +56,7 @@ const AdminPanel = ({ posts, galleries, categories }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-lg-4'>
                             <div className={`${styles.statisticBox} orange-statis-box`}>
                                 <div className={styles.statisticBoxHeader}>
                                     <h5 className='statis-title'><BsTextLeft /> Posts</h5>
@@ -80,7 +80,7 @@ const AdminPanel = ({ posts, galleries, categories }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-lg-4'>
                             <div className={`${styles.statisticBox} blue-statis-box`}>
                                 <div className={styles.statisticBoxHeader}>
                                     <h5 className='statis-title'><ImImages /> Galleries</h5>

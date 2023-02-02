@@ -43,13 +43,13 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
     return (
         <div className={styles.navbar}>
             <div className='container'>
-                <div className='row'>
-                    <div className='col-md-4'>
+                <div className='row align-items-center'>
+                    <div className='col-4 col-md-4'>
                         <div className={styles.logo}>
                             <Link onClick={() => setSearchValue('')} href={'/'}><span>Omar</span></Link>
                         </div>
                     </div>
-                    <div className='col-md-8'>
+                    <div className='col-8 col-md-8'>
                         <div className={styles.navigation}>
                             <div className={styles.navigationActions}>
                                 <div onClick={handleSearchClick} className={styles.searchBtn}>
@@ -90,7 +90,7 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
                                                 <h6>Infographics</h6>
                                                 <div className={`row`}>
                                                     {results.filteredGalleries.map(gallery => (
-                                                        <div key={gallery._id} className='col-md-4'>
+                                                        <div key={gallery._id} className='col-6 col-md-4'>
                                                             <li className={`${styles.searchInnerBox} ${styles.searchGallery}`} key={gallery._id}>
                                                                 <ModalImage small={gallery.image} large={gallery.image} alt={gallery.title} />
                                                             </li>

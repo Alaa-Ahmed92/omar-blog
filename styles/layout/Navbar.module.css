@@ -554,3 +554,20 @@
     border-radius: 9px;
     overflow: hidden;
 }
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+    .navigation .navWrapper ul li a {
+        justify-content: center;
+    }
+    .navigation .navWrapper ul li a .label {
+        display: none;
+    }
+    .searchContentBox {
+        padding: 0 15px;
+    }
+    .searchContent {
+        margin: 0 15px;
+    }
+  }

@@ -150,3 +150,105 @@
     letter-spacing: 1px;
     margin-bottom: 10px;
 }
+
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+    .expCard {
+        height: auto;
+        min-height: unset;
+        width: auto;
+        margin: 0;
+        margin-top: 30px !important;
+    }
+    .expCard:hover {
+        transform: translateY(-50px);
+    }
+    .expCardInner {
+        display: none;
+    }
+    .expCard:nth-child(2),
+    .expCard:nth-child(3),
+    .expCard:nth-child(4),
+    .expCard:nth-child(5) {
+        margin: 0;
+    }
+
+    .secTitle {
+        margin-bottom: 3rem;
+    }
+
+    .secTitle h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
+    .expContainer {
+        padding-bottom: 5rem;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media only screen and (min-width: 575.99px) and (max-width: 767.98px) {
+    
+    .expContainer {
+        padding-bottom: 5rem;
+    }
+    .expCard {
+        height: auto;
+        min-height: unset;
+        width: auto;
+        margin: 0;
+        margin-top: 30px !important;
+    }
+    .expCard:nth-child(2),
+    .expCard:nth-child(3),
+    .expCard:nth-child(4),
+    .expCard:nth-child(5) {
+        margin: 0;
+    }
+    .expCardInner {
+        display: none;
+    }
+    .expCard:hover {
+        transform: translateY(-50px);
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media only screen and (min-width: 767.99px) and (max-width: 991.98px) {
+    .expCard {
+        height: auto;
+        min-height: unset;
+        width: auto;
+        margin: 0;
+        margin-top: 30px !important;
+    }
+    .expCard:nth-child(2),
+    .expCard:nth-child(3),
+    .expCard:nth-child(4),
+    .expCard:nth-child(5) {
+        margin-left: 0;
+    }
+
+    .secTitle {
+        margin-bottom: 3rem;
+    }
+
+    .secTitle h1 {
+        font-size: 6rem;
+    }
+}
+
+
+/* Large devices (desktops, less than 1200px) */
+@media only screen and (min-width: 991.99px) and (max-width: 1199.98px) {
+  
+ 
+    .expCard:nth-child(3) {
+        margin-left: -3rem;
+    } 
+    .expCard:nth-child(5) {
+        margin-left: 2rem;
+    }
+}

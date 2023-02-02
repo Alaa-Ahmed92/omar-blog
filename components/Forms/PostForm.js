@@ -155,7 +155,7 @@ const PostForm = ({ className, categories, formId, postInput, forNewPost = true 
         <div>
             <Form id={formId} onSubmit={handleSubmit} className={className}>
                 <div className='row'>
-                    <div className='col-md-8'>
+                    <div className='col-md-7 col-lg-7 col-xl-8'>
                         <Form.Group className="mb-3">
                             <Form.Control onChange={handleFormChanges} name='title' value={form.title} className='input-control bg-darker' type="text" placeholder="Enter post title..." />
                             {errors && <p className='color-red'>{errors.errs.title}</p>}
@@ -165,7 +165,7 @@ const PostForm = ({ className, categories, formId, postInput, forNewPost = true 
                             {errors && <p className='color-red'>{errors.errs.body}</p>}
                         </Form.Group>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-5 col-lg-5 col-xl-4'>
                         <PublishBox
                             form={form}
                             errors={errors}

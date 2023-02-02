@@ -74,3 +74,47 @@
 .certImg img {
     width: 112px;
 }
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+	.certImg {
+        display: none;
+    }
+    .certTitle {
+        width: 100%;
+    }
+}
+
+
+/* Small devices (landscape phones, less than 768px) */
+@media only screen and (min-width: 575.99px) and (max-width: 767.98px) {
+	.certImg {
+        display: none;
+    }
+    .certTitle {
+        width: 100%;
+    }
+}
+
+
+
+/* Medium devices (tablets, less than 992px) */
+@media only screen and (min-width: 767.99px) and (max-width: 991.98px) {
+	.certImg {
+        display: none;
+    }
+    .certTitle {
+        width: 100%;
+    }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media only screen and (min-width: 991.99px) and (max-width: 1199.98px) {
+	.certImg {
+        display: none;
+    }
+    .certTitle {
+        width: 100%;
+    }
+}

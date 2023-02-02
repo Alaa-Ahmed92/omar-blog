@@ -12,8 +12,8 @@ const Info = () => {
             <div className='container'>
                 <Tab.Container defaultActiveKey="first">
                     <Row>
-                        <Col sm={4}>
-                            <Nav variant="pills" className="flex-column">
+                        <Col xs={12} sm={12} md={4}>
+                            <Nav variant="pills" className="flex-md-column">
                                 <Nav.Item>
                                     <Nav.Link className={styles.navLink} eventKey="first">What i do</Nav.Link>
                                 </Nav.Item>
@@ -28,7 +28,7 @@ const Info = () => {
                                 </Nav.Item>
                             </Nav>
                         </Col>
-                        <Col sm={8}>
+                        <Col xs={12} sm={12} md={8}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="first">
                                     <h5 className={styles.imgTxtContent}>With plenty of experience I can deliver the results you need.</h5>

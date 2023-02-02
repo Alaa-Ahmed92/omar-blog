@@ -9,7 +9,7 @@ const MyExperience = () => {
         <div className={`${styles.expContainer} pdd70`}>
             <div className='container'>
                 <div className={styles.secTitle}>
-                    <h1>My <br /> Experience</h1>
+                    <h1>My <br className='d-none d-md-inline-block' /> Experience</h1>
                 </div>
                 <div className={styles.expCardsContent}>
                     <div className={styles.expCard}>
