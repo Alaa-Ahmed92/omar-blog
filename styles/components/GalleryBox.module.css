@@ -115,3 +115,31 @@
     color: #101118 !important;
     padding-left: 10px;
 }
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+    .filter {
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+    .filter ul {
+        display: flex;
+    }
+    .imgBlock figcaption {
+        display: none;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media only screen and (min-width: 575.99px) and (max-width: 767.98px) {
+    .filter {
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+    .filter ul {
+        display: flex;
+    }
+    .imgBlock figcaption {
+        display: none;
+    }
+}

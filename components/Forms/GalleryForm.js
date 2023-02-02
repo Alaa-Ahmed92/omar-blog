@@ -155,14 +155,14 @@ const GalleryForm = ({ className, formId, categories, galleryInput, forNewGaller
         <div>
             <Form id={formId} onSubmit={handleSubmit} className={className}>
                 <div className='row'>
-                    <div className='col-md-8'>
+                    <div className='col-md-7 col-lg-7 col-xl-8'>
                         <Form.Group className="mb-3">
                             <Form.Control name='title' onChange={handleFormChanges} value={form.title} className='input-control bg-darker' type="text" placeholder="Enter gallery title..." />
                             {errors && <p className='color-red'>{errors.errs.title}</p>}
                         </Form.Group>
                         {form.image && <div><img className='img-fluid' src={form.image} alt={form.title} /></div>}
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-5 col-lg-5 col-xl-4'>
                         <PublishBox
                             form={form}
                             errors={errors}

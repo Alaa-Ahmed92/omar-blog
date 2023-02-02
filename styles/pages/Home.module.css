@@ -478,3 +478,10 @@
     clip: rect(98px, 9999px, 42px, 0);
   }
 }
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+  .contentWrapper h1 {
+    font-size: 4rem;
+  }
+}

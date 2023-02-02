@@ -13,3 +13,36 @@
     text-align: center;
     margin-bottom: 1rem;
 }
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+    .subHeader {
+        padding-top: 12rem;
+        padding-bottom: 7rem;
+    }
+    .subHeaderContent h1 {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width: 575.99px) and (max-width: 767.98px) {
+    .subHeader {
+        padding-top: 12rem;
+        padding-bottom: 7rem;
+    }
+    .subHeaderContent h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media only screen and (min-width: 767.99px) and (max-width: 991.98px) {
+    .subHeader {
+        padding-top: 12rem;
+        padding-bottom: 7rem;
+    }
+    .subHeaderContent h1 {
+        font-size: 4rem;
+    }
+}

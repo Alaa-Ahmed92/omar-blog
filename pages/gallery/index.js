@@ -24,8 +24,10 @@ const GalleryData = ({ categories, galleries }) => {
                     </BreadCrumbBlock>
                 </div>
             </SubHeader>
-            <div className='container pdd70'>
-                <GalleryBox galleries={galleries} categories={categories} />
+            <div className='galleryWrapper'>
+                <div className='container pdd70'>
+                    <GalleryBox galleries={galleries} categories={categories} />
+                </div>
             </div>
             <Tweets />
             <Footer />

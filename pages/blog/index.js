@@ -24,8 +24,10 @@ const Blog = ({ posts, featuredPosts, latestPosts, moreStories }) => {
                     </BreadCrumbBlock>
                 </div>
             </SubHeader>
-            <div className='container pdd70'>
-                <Posts posts={posts} featuredPosts={featuredPosts} latestPosts={latestPosts} moreStories={moreStories} />
+            <div className='postsWrapper'>
+                <div className='container pdd70'>
+                    <Posts posts={posts} featuredPosts={featuredPosts} latestPosts={latestPosts} moreStories={moreStories} />
+                </div>
             </div>
             <Tweets />
             <Footer />

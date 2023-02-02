@@ -34,7 +34,7 @@ const AboutMe = () => {
                             following areas: penetration testing, application assessments, social engineering (both physical and virtual),
                             vulnerability assessments and log analysis. </p>
                     </div>
-                    <div className='col-md-3 offset-md-1'>
+                    <div className='col-md-3 offset-lg-1'>
                         <div className={styles.statistics}>
                             <div className={styles.statisticsInner}>
                                 <span className={styles.counter}><CountUpBlock end={10} /> </span>
