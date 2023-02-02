@@ -7,8 +7,9 @@ import PostsTable from '../../../../components/Tables/PostsTable';
 import CategoryForm from '../../../../components/Forms/CategoryForm';
 import GalleriesTable from '../../../../components/Tables/GalleriesTable';
 import styles from './../../../../styles/pages/categories/EditPage.module.css';
+import Category from '../../../../models/Category';
 
-const CategoryPage = ({ category }) => {
+const CategoryPage = ({ category, catPosts, catGalleries }) => {
 
     const router = useRouter();
 
@@ -43,8 +44,8 @@ const CategoryPage = ({ category }) => {
                 <AdminHead className='green-admin-head' handleDelete={handleDelete} title={categoryForm.name} />
                 <BreadCrumbs links={links} />
                 <CategoryForm className='green-category-form' formId='edit-category-form' categoryInput={categoryForm} forNewCategory={false} />
-                {categoryForm.posts.length > 0 && <PostsTable posts={categoryForm.posts} />}
-                {categoryForm.galleries.length > 0 && <GalleriesTable galleries={categoryForm.galleries} />}
+                {catPosts.posts.length > 0 && <PostsTable posts={catPosts.posts} />}
+                {catGalleries.galleries.length > 0 && <GalleriesTable galleries={catGalleries.galleries} />}
             </div>
         </div>
     )
@@ -58,6 +59,10 @@ export async function getServerSideProps(ctx) {
     const res = await fetch(`http://localhost:3000/api/categories/${id}`);
     const category = await res.json();
 
+    const catPosts = await Category.findById(id).populate('posts');
+
+    const catGalleries = await Category.findById(id).populate('galleries');
+
     if (myCookie.token !== process.env.TOKEN) {
         return {
             redirect: {
@@ -68,7 +73,13 @@ export async function getServerSideProps(ctx) {
     }
 
     // Pass data to the page via props
-    return { props: { category } }
+    return {
+        props: {
+            category,
+            catPosts: JSON.parse(JSON.stringify(catPosts)),
+            catGalleries: JSON.parse(JSON.stringify(catGalleries))
+        }
+    }
 }
 
 export default CategoryPage

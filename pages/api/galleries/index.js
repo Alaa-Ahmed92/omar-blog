@@ -23,7 +23,8 @@ export default async function handler(req, res) {
                 const gallery = await Gallery.create(req.body);
 
                 await Promise.all(req.body.categories.map(async category => {
-                    return await Category.findOneAndUpdate({ name: category }, { $push: { galleries: gallery } });
+                    await Category.findOneAndUpdate({ name: category }, { $push: { galleries: gallery } });
+                    gallery.categories.push(category);
                 }));
 
                 res.status(201).json({ success: true, data: gallery });
