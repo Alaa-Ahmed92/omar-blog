@@ -12,7 +12,7 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
     const { id } = router.query;
     const [openNav, setOpenNav] = useState(false);
     const [searchValue, setSearchValue] = useState('');
-    const [results, setResults] = useState({ posts: [], galleries: [] });
+    const [results, setResults] = useState({ filteredPosts: [], filteredGalleries: [] });
     const [openGallery, setOpenGallery] = useState(false);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
                 .then((res) => res.json())
                 .then((data) => setResults(data))
         } else {
-            setResults({ posts: [], galleries: [] });
+            setResults({ filteredPosts: [], filteredGalleries: [] });
         }
     }, [searchValue])
 
@@ -46,7 +46,7 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
                 <div className='row'>
                     <div className='col-md-4'>
                         <div className={styles.logo}>
-                            <Link href={'/'}><span>Omar</span></Link>
+                            <Link onClick={() => setSearchValue('')} href={'/'}><span>Omar</span></Link>
                         </div>
                     </div>
                     <div className='col-md-8'>
@@ -75,22 +75,22 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
                                         <div className={styles.closeBtn}><span onClick={handleSearchClick}>ESC</span></div>
                                     </div>
                                     <div className={styles.searchInner}>
-                                        {results.posts.length > 0 && (
+                                        {results.filteredPosts.length > 0 && (
                                             <ul className={styles.searchInnerList}>
                                                 <h6>Posts</h6>
-                                                {results.posts.map(post => (
+                                                {results.filteredPosts.map(post => (
                                                     <li onClick={handleCloseSearchAndResetValue} className={styles.searchInnerBox} key={post._id}>
                                                         <Link href={`/blog/${post._id}`}><div>{post.title}</div><FaAngleRight /></Link>
                                                     </li>
                                                 ))}
                                             </ul>
                                         )}
-                                        {results.galleries.length > 0 && (
+                                        {results.filteredGalleries.length > 0 && (
                                             <ul className={`${styles.searchInnerList} ${styles.searchInfoList}`}>
                                                 <h6>Infographics</h6>
                                                 <div className={`row`}>
-                                                    {results.galleries.map(gallery => (
-                                                        <div className='col-md-4'>
+                                                    {results.filteredGalleries.map(gallery => (
+                                                        <div key={gallery._id} className='col-md-4'>
                                                             <li className={`${styles.searchInnerBox} ${styles.searchGallery}`} key={gallery._id}>
                                                                 <ModalImage small={gallery.image} large={gallery.image} alt={gallery.title} />
                                                             </li>
@@ -99,7 +99,7 @@ const Navbar = ({ handleSearchClick, openSearch }) => {
                                                 </div>
                                             </ul>
                                         )}
-                                        {results.posts.length === 0 && results.galleries.length === 0 && (<div className={styles.recentSearches}>No results yet</div>)}
+                                        {results.filteredPosts.length === 0 && results.filteredGalleries.length === 0 && (<div className={styles.recentSearches}>No results yet</div>)}
                                     </div>
                                 </div>
                             </div>

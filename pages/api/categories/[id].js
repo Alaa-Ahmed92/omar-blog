@@ -25,47 +25,47 @@ export default async function handler(req, res) {
             break
         case 'PUT':
             try {
+                const oldCategory = await Category.findById(id);
                 const category = await Category.findByIdAndUpdate(id, { name: req.body.name }, {
                     new: true,
                     runValidators: true
-                });
-                // Posts
-                await Promise.all(category.posts.map(async post => {
-                    const postItem = await Post.findById(post._id);
-                    await Post.findByIdAndUpdate(postItem._id, { 'categories': req.body.name });
-                }));
-                await Promise.all(category.posts.map(async post => {
-                    const postItem = await Post.findById(post._id);
-                    await Category.findByIdAndUpdate(category._id, { 'posts': postItem });
-                }));
+                }).populate('posts');
 
-                // Galleries
-                await Promise.all(category.galleries.map(async gallery => {
-                    const galleryItem = await Gallery.findById(gallery._id);
-                    await Gallery.findByIdAndUpdate(galleryItem._id, { 'categories': req.body.name });
-                }));
-                await Promise.all(category.galleries.map(async gallery => {
-                    const galleryItem = await Gallery.findById(gallery._id);
-                    await Category.findByIdAndUpdate(category._id, { 'galleries': galleryItem });
-                }));
-
+                await category.updateName(oldCategory.name, category.name);
 
                 if (!category) {
                     return res.status(400).json({ success: false })
                 }
                 res.status(200).json({ success: true, data: category })
             } catch (error) {
+                console.log(error);
                 res.status(400).json({ success: false })
             }
             break
         case 'DELETE' /* Delete a model by its ID */:
             try {
-                const deletedCategory = await Category.deleteOne({ _id: id })
-                if (!deletedCategory) {
-                    return res.status(400).json({ success: false })
-                }
+                const category = await Category.findById({ _id: id }).populate('posts')
+                const categoryItem = await Category.findById({ _id: id });
+
+                await Promise.all(category.posts.map(async post => {
+                    if (post.categories.length === 1) {
+                        await post.categories.map(async cat => {
+                            if (cat.toString() === category.name.toString()) {
+                                await Post.deleteOne({ _id: post._id }); // Delete Post
+                                await categoryItem.removePost(post._id); // Delete Post From This Category
+                                await Category.findByIdAndDelete({ _id: id }); // Delete This Category
+                            }
+                        })
+                    } else {
+                        await Post.updateMany({ _id: { $in: category.posts } }, { $pull: { categories: category.name } }); // Remove Category Name from Categories array
+                        await Category.findByIdAndDelete({ _id: id }); // Delete This Category
+                    }
+
+                }))
+
                 res.status(200).json({ success: true, data: {} })
             } catch (error) {
+                console.log(error);
                 res.status(400).json({ success: false })
             }
             break

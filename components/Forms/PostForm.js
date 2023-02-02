@@ -97,19 +97,6 @@ const PostForm = ({ className, categories, formId, postInput, forNewPost = true 
         }
     }
 
-    // const handleDelete = async () => {
-    //     const postId = router.query.id;
-    //     try {
-    //         await fetch(`/api/posts/${postId}`, {
-    //             method: 'DELETE'
-    //         });
-
-    //         router.push('/admin/posts');
-    //     } catch (error) {
-    //         setMessage('Failed to delete post!')
-    //     }
-    // }
-
     const formValidate = () => {
         let err = {};
         if (!form.title) err.title = 'Title is required!';

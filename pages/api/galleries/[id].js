@@ -1,6 +1,7 @@
 import Gallery from "../../../models/Gallery";
 import Category from "../../../models/Category";
 import dbConnect from "../../../utils/dbConnect";
+import { arraysAreEqual } from "../../../utils/helpers";
 
 export default async function handler(req, res) {
     const {
@@ -28,14 +29,25 @@ export default async function handler(req, res) {
             break;
         case 'PUT':
             try {
+                const oldGallery = await Gallery.findById(id);
                 const gallery = await Gallery.findByIdAndUpdate(id, req.body, {
                     new: true,
                     runValidators: true,
                 })
 
-                await Promise.all(gallery.categories.map(async category => {
-                    await Category.updateOne({ name: category }, { $set: { 'galleries': gallery } });
-                }));
+                if (req.body) {
+                    const arrEqual = await arraysAreEqual(oldGallery.categories, req.body.categories);
+                    if (!arrEqual) {
+                        await Promise.all(oldGallery.categories.map(async cat => {
+                            const category = await Category.findOne({ name: cat })
+                            await category.removeGallery(oldGallery._id); // Delete Gallery From This Category
+                        }))
+                        await Promise.all(req.body.categories.map(async cat => {
+                            const category = await Category.findOne({ name: cat })
+                            await category.addGallery(gallery); // Add Gallery From This Category
+                        }))
+                    }
+                }
 
                 if (!gallery) {
                     return res.status(400).json({ success: false });
@@ -52,17 +64,11 @@ export default async function handler(req, res) {
                 const gallery = await Gallery.findOne({ _id: id });
                 const deletedGallery = await Gallery.deleteOne({ _id: id });
 
-                await Promise.all(gallery.categories.map(async category => {
-                    Category.updateOne(
-                        { name: category },
-                        { $pull: { galleries: { _id: gallery._id } } }
-                    ).then((result) => {
-                        console.log('result', result);
-                    })
-                        .catch((error) => {
-                            console.log('error', error);
-                        });
-                }));
+                await Promise.all(gallery.categories.map(async categoryItem => {
+                    const category = await Category.findOne({ name: categoryItem })
+
+                    await category.removeGallery(gallery._id);
+                }))
 
                 if (!deletedGallery) {
                     return res.status(400).json({ success: false });

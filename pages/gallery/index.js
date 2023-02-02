@@ -36,9 +36,9 @@ const GalleryData = ({ categories, galleries }) => {
 export const getServerSideProps = async () => {
     await dbConnect();
 
-    const galleries = await (await Gallery.find({})).filter(item => item.status !== 'Draft');
+    const galleries = await (await Gallery.find({})).filter(item => item.status !== 'draft');
 
-    const result = await Category.find({});
+    const result = await Category.find({}).populate('galleries');
     const categories = result.map(item => {
         const category = item.toObject();
         category._id = category._id.toString()

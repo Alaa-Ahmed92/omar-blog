@@ -65,6 +65,7 @@ export const Posts = ({ posts, featuredPosts, latestPosts, moreStories }) => {
 
     return (
         <div>
+            {(featuredPosts.length && latestPosts.length && moreStories.length) === 0 && <h3>No posts are published yet.</h3>}
             {featuredPosts?.length === 4 && (
                 <div className={styles.featuredBlog}>
                     <h3 className={styles.blogSecTitle}>Featured</h3>

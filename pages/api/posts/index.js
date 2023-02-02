@@ -19,11 +19,15 @@ export default async function handler(req, res) {
         case 'POST':
             try {
                 const post = await Post.create(req.body);
+
                 await Promise.all(req.body.categories.map(async category => {
-                    return await Category.findOneAndUpdate({ name: category }, { $push: { posts: post } });
+                    await Category.findOneAndUpdate({ name: category }, { $push: { posts: post } });
+                    post.categories.push(category);
                 }));
+
                 res.status(201).json({ success: true, data: post });
             } catch (error) {
+                console.log(error);
                 res.status(400).json({ success: false });
             }
             break;
